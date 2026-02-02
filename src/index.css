@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --animate-fade-in-down: fadeInDown 0.8s ease-out forwards;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+}
+
+:root {
+  --bg: rgba(0,0,0,0.0);
+  --panel: rgba(0,0,0,0.80);
+  --text: #f5f7fa;
+  --accent: #D8552B;
+  --overlay-wpx: 380;
+  --overlay-m: 24;
+  --header-bg: #D8552B;
+  --fastest: #8000FF;
+  --up: #00D084;
+  --down: #FF4D4F;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial, sans-serif;
+  overflow: auto;
+}
+
+/* Scrollbar Customization */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes fastestPulse {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.45); }
+  100% { filter: brightness(1); }
+}
+
+tr td {
+  transition: background-color 500ms ease, color 500ms ease;
+}
+
+.fastest td {
+  background: var(--fastest);
+  color: #fff;
+}
+.fastest.flash td {
+  animation: fastestPulse 900ms ease-in-out infinite;
+}
+
+@keyframes flagSlideIn {
+  0% { transform: translate(140%, -50%); opacity: 0; }
+  100% { transform: translate(0, -50%); opacity: 1; }
+}
+.flag-icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+  font-size: 16px;
+  line-height: 1;
+}
+.flag-left {
+  left: 6px;
+  right: auto;
+  font-size: 18px;
+}
+.show-left {
+  animation: flagSlideInLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes flagSlideInLeft {
+  0% { transform: translate(-140%, -50%); opacity: 0; }
+  100% { transform: translate(0, -50%); opacity: 1; }
+}
+
+.metric-swap {
+  display: inline-block;
+  animation: swapFadeIn 400ms ease-out both;
+}
+@keyframes swapFadeIn {
+  0% { opacity: 0; transform: translateY(4px); }
+  100% { opacity: 1; transform: translateY(0); }
+}

@@ -1,31 +1,16 @@
-# StreamRace Solutions - Landing Page 🏁
+# React + Vite
 
-The public-facing marketing website for **StreamRace Solutions**, a professional SaaS platform designed to automate and elevate **Real-World Motorsport Broadcasts** with TV-grade graphics.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-🌐 **Live Site:** [streamrace.solutions](https://streamrace.solutions)
+Currently, two official plugins are available:
 
-## 🚀 Overview
-This repository hosts the static landing page designed to convert race organizers and streaming producers into clients. It showcases the platform's capabilities (Live Timing integration, Director Mode, Trackside Voting) with a focus on broadcast reliability and visual quality for professional racing categories.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## ✨ Key Features
-- **TV-Grade Visuals:** Immersive animations and layouts that rival top-tier racing categories (F1, TC, NASCAR style).
-- **High-Performance UI:** Built with **React** and **Vite** for instant loading, crucial for fast-paced broadcast environments.
-- **Responsive Showcase:** Fully adaptive layout to demonstrate the tool to circuit managers and producers on any device.
-- **Direct Sales Flow:** Optimized integration with WhatsApp for immediate B2B contact and demo requests.
+## React Compiler
 
-## 🛠️ Tech Stack
-- **Framework:** React 18 + Vite
-- **Styling:** Tailwind CSS (Dark Mode / High Contrast)
-- **Animations:** Framer Motion
-- **Icons:** Lucide React
-- **Deployment:** Vercel
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## 📸 Sections
-1.  **Hero:** "TV-Grade" value proposition for professional broadcasting.
-2.  **Solutions:** Modules for Race Direction, Live Timing overlays, and Fan Engagement.
-3.  **Showcase:** Visual gallery of the tool in action on live streams.
-4.  **Pricing:** Business tiers (Annual License & Per-Event pricing).
-5.  **Contact:** Direct B2B sales channel.
+## Expanding the ESLint configuration
 
----
-*Part of the StreamRace Solutions ecosystem for Professional Motorsport.*
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
