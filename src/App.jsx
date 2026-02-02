@@ -414,7 +414,6 @@ export default function LandingPage() {
 
       {/* CTA Footer */}
       <footer className="py-24 relative overflow-hidden flex flex-col items-center text-center">
-         <div className="absolute top-0 left-0 w-full h-full bg-(--accent)/5 pointer-events-none" />
          <motion.div 
            initial={{ opacity: 0, scale: 0.9 }}
            whileInView={{ opacity: 1, scale: 1 }}
