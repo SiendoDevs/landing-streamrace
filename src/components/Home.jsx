@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 import ErrorBoundary from "./ErrorBoundary";
+import Logo from "./Logo";
 const ContactModal = React.lazy(() => import("./ContactModal"));
 import { 
   Zap,  Tv, 
@@ -93,14 +94,8 @@ export default function LandingPage() {
         transition={{ duration: 0.5 }}
         className="flex items-center justify-between px-6 py-5 md:px-12 border-b border-white/5 bg-black/60 backdrop-blur-xl sticky top-0 z-50"
       >
-        <div className="flex items-center gap-2 group cursor-pointer">
-           <motion.div 
-             whileHover={{ rotate: 12, scale: 1.1 }}
-             className="w-5 h-5 bg-(--accent) transform -skew-x-12 shadow-[0_0_15px_var(--accent)] transition-all" 
-           />
-           <div className="font-black italic tracking-tighter text-xl uppercase text-white"> 
-             StreamRace <span className="text-(--accent)">Manager</span>
-           </div>
+        <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+           <Logo className="h-5 md:h-7 w-auto object-contain" />
         </div>
 
         {/* Desktop Menu */}
@@ -460,7 +455,7 @@ export default function LandingPage() {
            transition={{ duration: 0.6 }}
            className="z-10 max-w-3xl px-6"
          >
-            <h2 className="text-4xl md:text-6xl font-black italic uppercase mb-8 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-black italic uppercase mb-8 leading-tight">
                ¿Listo para subir de nivel?
             </h2>
             <p className="text-xl font-light text-white/60 mb-10">

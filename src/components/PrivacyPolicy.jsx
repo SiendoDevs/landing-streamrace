@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Shield, Lock, Eye, FileText, ChevronLeft } from "lucide-react";
+import Logo from "./Logo";
 
 export default function PrivacyPolicy() {
   const fadeInUp = {
@@ -12,9 +13,8 @@ export default function PrivacyPolicy() {
     <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-(--accent) selection:text-black">
       {/* Navbar Minimalista */}
       <nav className="flex items-center justify-between px-6 py-5 md:px-12 border-b border-white/5 bg-black/60 backdrop-blur-xl sticky top-0 z-50">
-        <div className="flex items-center gap-2">
-           <div className="w-5 h-5 bg-(--accent) -skew-x-12 shadow-[0_0_15px_var(--accent)]" />
-           <div className="font-black italic tracking-tighter text-xl uppercase text-white">StreamRace</div>
+        <div className="flex items-center gap-2" onClick={() => window.location.href = '/'}>
+           <Logo className="h-5 md:h-7 w-auto object-contain cursor-pointer" />
         </div>
         <a href="/" className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">
           <ChevronLeft className="w-4 h-4" /> Volver
