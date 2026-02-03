@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState, Suspense } from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
+import ErrorBoundary from "./components/ErrorBoundary";
+const ContactModal = React.lazy(() => import("./components/ContactModal"));
 import { 
-  Zap, 
-  Tv, 
+  Zap,  Tv, 
   Trophy, 
   LayoutDashboard, 
   Smartphone, 
@@ -19,7 +21,15 @@ import {
 const WHATSAPP_NUMBER = "5491168005239"; // REEMPLAZA CON TU NUMERO (Formato Internacional sin +)
 
 export default function LandingPage() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState("demo");
+
+  const handleOpenModal = (type) => {
+    setModalType(type);
+    setIsModalOpen(true);
+    setIsMenuOpen(false);
+  };
 
   const scrollToSection = (id) => (e) => {
     e.preventDefault();
@@ -33,11 +43,6 @@ export default function LandingPage() {
         window.scrollTo({ top: y, behavior: 'smooth' });
       }
     }, 100);
-  };
-
-  const openWhatsApp = (msg) => {
-    const text = encodeURIComponent(msg);
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank');
   };
 
   const fadeInUp = {
@@ -55,18 +60,41 @@ export default function LandingPage() {
     }
   };
 
+  // Preload del modal para mejorar la velocidad de apertura
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      import("./components/ContactModal");
+    }, 1500); // Pre-carga después de 1.5s para no bloquear la carga inicial
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div 
       className="min-h-screen bg-[#050505] text-white flex flex-col font-sans selection:bg-(--accent) selection:text-black overflow-x-hidden"
       style={{ "--accent": "#D8552B" }}
     >
       
+      {/* Modal - Lazy Loaded con Fallback visual */}
+      <Suspense fallback={
+        isModalOpen ? (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+             <div className="w-10 h-10 border-4 border-white/10 border-t-(--accent) rounded-full animate-spin"></div>
+          </div>
+        ) : null
+      }>
+        <ContactModal 
+          isOpen={isModalOpen} 
+          onClose={() => setIsModalOpen(false)} 
+          initialType={modalType}
+        />
+      </Suspense>
+
       {/* Navbar */}
       <motion.nav 
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className="flex items-center justify-between px-6 py-5 md:px-12 border-b border-white/5 bg-black/60 backdrop-blur-xl sticky top-0 z-50 relative"
+        className="flex items-center justify-between px-6 py-5 md:px-12 border-b border-white/5 bg-black/60 backdrop-blur-xl sticky top-0 z-50"
       >
         <div className="flex items-center gap-2 group cursor-pointer">
            <motion.div 
@@ -82,6 +110,12 @@ export default function LandingPage() {
         <div className="hidden md:flex items-center gap-6">
           <a href="#features" onClick={scrollToSection('features')} className="text-xs font-bold uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">Soluciones</a>
           <a href="#showcase" onClick={scrollToSection('showcase')} className="text-xs font-bold uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">Showcase</a>
+          <button 
+            onClick={() => handleOpenModal('demo')}
+            className="text-xs font-bold uppercase tracking-widest text-(--accent) hover:text-white transition-colors cursor-pointer"
+          >
+            Solicitar Demo
+          </button>
           <motion.a 
             href="https://app.streamrace.solutions" 
             whileHover={{ scale: 1.05 }}
@@ -125,6 +159,14 @@ export default function LandingPage() {
                   </a>
                   
                   <div className="h-px bg-white/5 my-2 mx-4" />
+
+                  <button 
+                    onClick={() => handleOpenModal('demo')}
+                    className="flex items-center gap-4 p-4 w-full text-left rounded-xl hover:bg-white/5 transition-all group"
+                  >
+                    <Play className="w-5 h-5 text-(--accent)" />
+                    <span className="text-lg font-black uppercase italic tracking-wider text-white group-hover:pl-2 transition-all">Solicitar Demo</span>
+                  </button>
                   
                   <a 
                     href="https://app.streamrace.solutions" 
@@ -177,10 +219,10 @@ export default function LandingPage() {
           </motion.div>
 
           <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl md:text-7xl font-black italic tracking-tighter uppercase mb-6 md:mb-10 leading-[0.95] md:leading-[0.9]">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-gray-200 to-gray-400">
               Gráficas en Tiempo Real
             </span><br />
-            <span className="text-xl sm:text-2xl md:text-4xl block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">
+            <span className="text-xl sm:text-2xl md:text-4xl block mt-2 text-transparent bg-clip-text bg-linear-to-r from-white via-gray-200 to-gray-500">
               Para Transmisiones de Automovilismo
             </span>
           </motion.h1>
@@ -202,7 +244,7 @@ export default function LandingPage() {
             <motion.button 
               whileHover={{ scale: 1.05, brightness: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => openWhatsApp("Hola Streamrace Solutions®, ¡Estoy interesado en su servicio!")}
+              onClick={() => handleOpenModal('demo')}
               className="w-full sm:w-auto group px-8 py-4 bg-(--accent) text-black font-bold uppercase italic tracking-wider rounded transition-all shadow-[0_0_40px_rgba(216,85,43,0.3)] hover:shadow-[0_0_60px_rgba(216,85,43,0.5)] flex items-center justify-center gap-3"
             >
               <Play className="w-5 h-5 fill-current" />
@@ -231,7 +273,7 @@ export default function LandingPage() {
             transition={{ duration: 0.8 }}
             className="order-2 lg:order-1 relative group"
           >
-             <div className="absolute -inset-1 bg-gradient-to-r from-(--accent) to-purple-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+             <div className="absolute -inset-1 bg-linear-to-r from-(--accent) to-purple-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
              <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-[#0a0a0a]">
                 <img src="/landing/overlay-principal.png" alt="Overlay Principal" className="w-full h-auto transform transition-transform duration-700 group-hover:scale-105" />
              </div>
@@ -310,7 +352,7 @@ export default function LandingPage() {
             transition={{ duration: 0.8 }}
             className="relative group perspective-1000"
           >
-             <div className="absolute -inset-1 bg-gradient-to-l from-blue-600 to-purple-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+             <div className="absolute -inset-1 bg-linear-to-l from-blue-600 to-purple-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
              <motion.div 
                whileHover={{ rotateY: 5, rotateX: 5 }}
                className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-[#0a0a0a]"
@@ -431,7 +473,7 @@ export default function LandingPage() {
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => openWhatsApp("Hola! Quiero solicitar acceso a la plataforma.")}
+              onClick={() => handleOpenModal('access')}
               className="px-10 py-5 bg-white text-black font-black uppercase italic tracking-wider rounded text-lg shadow-2xl"
             >
                Solicitar Acceso
@@ -450,7 +492,7 @@ export default function LandingPage() {
               <div className="flex gap-8">
                  <a href="/privacy" className="text-xs font-mono text-white/30 hover:text-white transition-colors cursor-pointer uppercase tracking-widest">Privacidad</a>
                  <a href="/terms" className="text-xs font-mono text-white/30 hover:text-white transition-colors cursor-pointer uppercase tracking-widest">Términos de Uso</a>
-                 <span onClick={() => openWhatsApp("Hola! Tengo una consulta sobre StreamRace.")} className="text-xs font-mono text-white/30 hover:text-white transition-colors cursor-pointer uppercase tracking-widest">Contacto</span>
+                 <span onClick={() => handleOpenModal('demo')} className="text-xs font-mono text-white/30 hover:text-white transition-colors cursor-pointer uppercase tracking-widest">Contacto</span>
               </div>
             </div>
             <div className="text-[10px] text-white/10 font-mono w-full text-center border-t border-white/5 pt-4">
@@ -458,6 +500,12 @@ export default function LandingPage() {
             </div>
          </div>
       </footer>
+
+      <ContactModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        initialType={modalType} 
+      />
     </div>
   );
 }
@@ -495,7 +543,7 @@ function BentoCard({ image, title, desc, badge, accent = "orange" }) {
         className="bg-[#111] rounded-2xl overflow-hidden border border-white/5 group hover:border-white/10 transition-all"
       >
          <div className="h-48 overflow-hidden relative">
-            <div className="absolute inset-0 bg-gradient-to-t from-[#111] to-transparent z-10 opacity-60" />
+            <div className="absolute inset-0 bg-linear-to-t from-[#111] to-transparent z-10 opacity-60" />
             <img src={image} alt={title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border backdrop-blur-md z-20 ${badgeColors[accent] || badgeColors.orange}`}>
                {badge}

@@ -21,6 +21,28 @@
   --fastest: #8000FF;
   --up: #00D084;
   --down: #FF4D4F;
+
+  /* Shadcn UI Variables (Dark Theme Default) - Adapted for Tailwind 4 */
+  --background: hsl(0 0% 3.9%);
+  --foreground: hsl(0 0% 98%);
+  --card: hsl(0 0% 3.9%);
+  --card-foreground: hsl(0 0% 98%);
+  --popover: hsl(0 0% 3.9%);
+  --popover-foreground: hsl(0 0% 98%);
+  --primary: hsl(0 0% 98%);
+  --primary-foreground: hsl(0 0% 9%);
+  --secondary: hsl(0 0% 14.9%);
+  --secondary-foreground: hsl(0 0% 98%);
+  --muted: hsl(0 0% 14.9%);
+  --muted-foreground: hsl(0 0% 63.9%);
+  /* --accent: hsl(0 0% 14.9%);  Using brand accent instead */
+  --accent-foreground: hsl(0 0% 98%);
+  --destructive: hsl(0 62.8% 30.6%);
+  --destructive-foreground: hsl(0 0% 98%);
+  --border: hsl(0 0% 14.9%);
+  --input: hsl(0 0% 14.9%);
+  --ring: hsl(0 0% 83.1%);
+  --radius: 0.5rem;
 }
 
 html, body, #root {
@@ -96,13 +118,4 @@ tr td {
 @keyframes flagSlideInLeft {
   0% { transform: translate(-140%, -50%); opacity: 0; }
   100% { transform: translate(0, -50%); opacity: 1; }
-}
-
-.metric-swap {
-  display: inline-block;
-  animation: swapFadeIn 400ms ease-out both;
-}
-@keyframes swapFadeIn {
-  0% { opacity: 0; transform: translateY(4px); }
-  100% { opacity: 1; transform: translateY(0); }
 }
