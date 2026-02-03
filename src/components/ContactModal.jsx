@@ -32,6 +32,20 @@ const COUNTRIES = [
   { code: "VE", name: "Venezuela" },
 ];
 
+// Custom Input Component defined outside to prevent re-renders losing focus
+const CustomInput = ({ id, label, ...props }) => (
+  <div className="grid gap-2">
+    <label htmlFor={id} className="text-white/70 text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+      {label}
+    </label>
+    <input
+      id={id}
+      className="flex h-10 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#D8552B] focus:ring-1 focus:ring-[#D8552B] disabled:cursor-not-allowed disabled:opacity-50 transition-all"
+      {...props}
+    />
+  </div>
+);
+
 export default function ContactModal({ isOpen, onClose, initialType = "demo" }) {
   const [formState, setFormState] = useState({
     name: "",
@@ -131,20 +145,6 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo" }) 
       setIsSubmitting(false);
     }
   };
-
-  // Custom Input Component
-  const CustomInput = ({ id, label, ...props }) => (
-    <div className="grid gap-2">
-      <label htmlFor={id} className="text-white/70 text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-        {label}
-      </label>
-      <input
-        id={id}
-        className="flex h-10 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#D8552B] focus:ring-1 focus:ring-[#D8552B] disabled:cursor-not-allowed disabled:opacity-50 transition-all"
-        {...props}
-      />
-    </div>
-  );
 
   return (
     <AnimatePresence>
