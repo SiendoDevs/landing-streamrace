@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle, Send, AlertCircle, X, ChevronDown } from "lucide-react";
+import { CheckCircle, AlertCircle, X, ChevronDown } from "lucide-react";
 import * as RPNInput from "react-phone-number-input";
 import InputPhone from "react-phone-number-input/input";
 import flags from "react-phone-number-input/flags";
@@ -165,6 +165,7 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo" }) 
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 transition={{ duration: 0.2 }}
+                aria-describedby="contact-modal-description"
                 className="relative w-full max-w-[700px] mx-4 bg-[#0A0A0A] border border-white/10 rounded-lg shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
             >
                 {/* Header */}
@@ -181,7 +182,7 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo" }) 
                             <span className="sr-only">Close</span>
                         </button>
                     </div>
-                    <p className="text-sm text-white/50">
+                    <p id="contact-modal-description" className="text-sm text-white/50">
                         {isSuccess 
                         ? "Tu solicitud ha sido recibida correctamente."
                         : "Completa el formulario para ponerte en contacto con nuestro equipo."
