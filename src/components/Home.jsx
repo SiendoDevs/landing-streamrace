@@ -210,19 +210,19 @@ export default function LandingPage() {
             </span>
           </motion.div>
 
-          <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl md:text-7xl font-black italic tracking-tighter uppercase mb-6 md:mb-10 leading-[0.95] md:leading-[0.9]">
+          <motion.h1 variants={fadeInUp} className="text-xl sm:text-5xl md:text-7xl font-black italic tracking-tighter uppercase mb-6 md:mb-10 leading-[0.95] md:leading-[0.9]">
             <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-gray-200 to-gray-400">
               Gráficas en Tiempo Real
             </span><br />
-            <span className="text-xl sm:text-2xl md:text-4xl block mt-2 text-transparent bg-clip-text bg-linear-to-r from-white via-gray-200 to-gray-500">
+            <span className="text-xl sm:text-2xl md:text-5xl block mt-2 text-transparent bg-clip-text bg-linear-to-r from-white via-gray-200 to-gray-500">
               Para Transmisiones de Automovilismo
             </span>
           </motion.h1>
 
           <motion.div variants={fadeInUp} className="mb-8 md:mb-10 flex justify-center">
             <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm shadow-[0_0_20px_rgba(216,85,43,0.1)] hover:bg-white/10 transition-colors">
-              <Tv className="w-5 h-5 text-(--accent)" />
-              <span className="text-sm md:text-base font-bold text-white/90 uppercase tracking-widest">
+              <Tv className="hidden md:block w-5 h-5 text-(--accent)" />
+              <span className="text-xs md:text-base font-bold text-white/90 uppercase">
                 Calidad <span className="text-(--accent)">“TV-Grade”</span> + Automatización Total
               </span>
             </div>
@@ -237,19 +237,19 @@ export default function LandingPage() {
               whileHover={{ scale: 1.05, brightness: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => handleOpenModal('demo')}
-              className="w-full sm:w-auto group px-8 py-4 bg-(--accent) text-black font-bold uppercase italic tracking-wider rounded transition-all shadow-[0_0_40px_rgba(216,85,43,0.3)] hover:shadow-[0_0_60px_rgba(216,85,43,0.5)] flex items-center justify-center gap-3"
+              className="w-full sm:w-auto group px-6 py-3 md:px-8 md:py-4 text-sm md:text-base bg-(--accent) text-black font-bold uppercase italic tracking-wider rounded transition-all shadow-[0_0_40px_rgba(216,85,43,0.3)] hover:shadow-[0_0_60px_rgba(216,85,43,0.5)] flex items-center justify-center gap-3"
             >
-              <Play className="w-5 h-5 fill-current" />
+              <Play className="w-4 h-4 md:w-5 md:h-5 fill-current" />
               Ver Demo
             </motion.button>
             <motion.button 
               whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToSection('features')}
-              className="w-full sm:w-auto px-8 py-4 bg-transparent border border-white/20 text-white font-bold uppercase tracking-wider rounded transition-all flex items-center justify-center gap-2 group"
+              className="w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 text-sm md:text-base bg-transparent border border-white/20 text-white font-bold uppercase tracking-wider rounded transition-all flex items-center justify-center gap-2 group"
             >
               Explorar Características
-              <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ChevronRight className="w-3 h-3 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform" />
             </motion.button>
           </motion.div>
         </motion.div>
