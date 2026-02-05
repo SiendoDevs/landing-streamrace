@@ -539,7 +539,7 @@ function BentoCard({ image, title, desc, badge, accent = "orange" }) {
         className="bg-[#111] rounded-2xl overflow-hidden border border-white/5 group hover:border-white/10 transition-all"
       >
          <div className="h-48 overflow-hidden relative">
-            <div className="absolute inset-0 bg-linear-to-t from-[#111] to-transparent z-10 opacity-60" />
+            <div className="absolute inset-0 bg-linear-to-t from-[#111] to-transparent z-10 opacity-30" />
             <img src={image} alt={title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border backdrop-blur-md z-20 ${badgeColors[accent] || badgeColors.orange}`}>
                {badge}
