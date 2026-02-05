@@ -14,7 +14,7 @@ export default function PrivacyPolicy() {
       {/* Navbar Minimalista */}
       <nav className="flex items-center justify-between px-6 py-5 md:px-12 border-b border-white/5 bg-black/60 backdrop-blur-xl sticky top-0 z-50">
         <div className="flex items-center gap-2" onClick={() => window.location.href = '/'}>
-           <Logo className="h-5 md:h-7 w-auto object-contain cursor-pointer" />
+           <Logo className="h-[18px] md:h-[25px] w-auto object-contain cursor-pointer" />
         </div>
         <a href="/" className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">
           <ChevronLeft className="w-4 h-4" /> Volver

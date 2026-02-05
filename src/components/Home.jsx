@@ -95,13 +95,13 @@ export default function LandingPage() {
         className="flex items-center justify-between px-6 py-5 md:px-12 border-b border-white/5 bg-black/60 backdrop-blur-xl sticky top-0 z-50"
       >
         <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-           <Logo className="h-5 md:h-7 w-auto object-contain" />
+           <Logo className="h-[18px] md:h-[25px] w-auto object-contain" />
         </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-6">
-          <a href="#features" onClick={scrollToSection('features')} className="text-xs font-bold uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">Soluciones</a>
           <a href="#showcase" onClick={scrollToSection('showcase')} className="text-xs font-bold uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">Showcase</a>
+          <a href="#features" onClick={scrollToSection('features')} className="text-xs font-bold uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">Soluciones</a>
           <button 
             onClick={() => handleOpenModal('demo')}
             className="text-xs font-bold uppercase tracking-widest text-(--accent) hover:text-white transition-colors cursor-pointer"
@@ -138,15 +138,15 @@ export default function LandingPage() {
               className="absolute top-full left-0 w-full bg-[#050505] border-b border-white/10 overflow-hidden shadow-2xl md:hidden"
             >
               <div className="flex flex-col p-6 gap-2">
-                  <a href="#features" onClick={scrollToSection('features')} className="group flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-all border border-transparent hover:border-white/5">
-                      <LayoutDashboard className="w-5 h-5 text-white/40 group-hover:text-(--accent) transition-colors" />
-                      <span className="text-lg font-black uppercase italic tracking-wider text-white group-hover:pl-2 transition-all">Soluciones</span>
-                      <ChevronRight className="ml-auto w-4 h-4 text-white/20 group-hover:text-white transition-colors" />
-                  </a>
-
                   <a href="#showcase" onClick={scrollToSection('showcase')} className="group flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-all border border-transparent hover:border-white/5">
                       <Trophy className="w-5 h-5 text-white/40 group-hover:text-(--accent) transition-colors" />
                       <span className="text-lg font-black uppercase italic tracking-wider text-white group-hover:pl-2 transition-all">Showcase</span>
+                      <ChevronRight className="ml-auto w-4 h-4 text-white/20 group-hover:text-white transition-colors" />
+                  </a>
+
+                  <a href="#features" onClick={scrollToSection('features')} className="group flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-all border border-transparent hover:border-white/5">
+                      <LayoutDashboard className="w-5 h-5 text-white/40 group-hover:text-(--accent) transition-colors" />
+                      <span className="text-lg font-black uppercase italic tracking-wider text-white group-hover:pl-2 transition-all">Soluciones</span>
                       <ChevronRight className="ml-auto w-4 h-4 text-white/20 group-hover:text-white transition-colors" />
                   </a>
                   
@@ -210,11 +210,11 @@ export default function LandingPage() {
             </span>
           </motion.div>
 
-          <motion.h1 variants={fadeInUp} className="text-xl sm:text-5xl md:text-7xl font-black italic tracking-tighter uppercase mb-6 md:mb-10 leading-[0.95] md:leading-[0.9]">
+          <motion.h1 variants={fadeInUp} className="text-xl sm:text-5xl md:text-6xl font-black italic tracking-tighter uppercase mb-6 md:mb-10 leading-[0.95] md:leading-[0.9]">
             <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-gray-200 to-gray-400">
               Gráficas en Tiempo Real
             </span><br />
-            <span className="text-xl sm:text-2xl md:text-5xl block mt-2 text-transparent bg-clip-text bg-linear-to-r from-white via-gray-200 to-gray-500">
+            <span className="text-xl sm:text-2xl md:text-4xl block mt-2 text-transparent bg-clip-text bg-linear-to-r from-white via-gray-200 to-gray-500">
               Para Transmisiones de Automovilismo
             </span>
           </motion.h1>
@@ -222,7 +222,7 @@ export default function LandingPage() {
           <motion.div variants={fadeInUp} className="mb-8 md:mb-10 flex justify-center">
             <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm shadow-[0_0_20px_rgba(216,85,43,0.1)] hover:bg-white/10 transition-colors">
               <Tv className="hidden md:block w-5 h-5 text-(--accent)" />
-              <span className="text-xs md:text-base font-bold text-white/90 uppercase">
+              <span className="text-[10px] md:text-base font-bold text-white/90 uppercase">
                 Calidad <span className="text-(--accent)">“TV-Grade”</span> + Automatización Total
               </span>
             </div>
@@ -233,15 +233,17 @@ export default function LandingPage() {
           </motion.p>
 
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-            <motion.button 
+            <motion.a 
               whileHover={{ scale: 1.05, brightness: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => handleOpenModal('demo')}
-              className="w-full sm:w-auto group px-6 py-3 md:px-8 md:py-4 text-sm md:text-base bg-(--accent) text-black font-bold uppercase italic tracking-wider rounded transition-all shadow-[0_0_40px_rgba(216,85,43,0.3)] hover:shadow-[0_0_60px_rgba(216,85,43,0.5)] flex items-center justify-center gap-3"
+              href="https://www.youtube.com/live/bbmD2Mqvq5E?si=SrfcX5wRw3PFoZvf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto group px-6 py-3 md:px-8 md:py-4 text-sm md:text-base bg-(--accent) text-black font-bold uppercase italic tracking-wider rounded transition-all shadow-[0_0_40px_rgba(216,85,43,0.3)] hover:shadow-[0_0_60px_rgba(216,85,43,0.5)] flex items-center justify-center gap-3 cursor-pointer"
             >
               <Play className="w-4 h-4 md:w-5 md:h-5 fill-current" />
-              Ver Demo
-            </motion.button>
+              Demo en Vivo
+            </motion.a>
             <motion.button 
               whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
               whileTap={{ scale: 0.95 }}
@@ -267,13 +269,13 @@ export default function LandingPage() {
           >
              <div className="absolute -inset-1 bg-linear-to-r from-(--accent) to-purple-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
              <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-[#0a0a0a]">
-                <img src="/landing/overlay-principal.png" alt="Overlay Principal" className="w-full h-auto transform transition-transform duration-700 group-hover:scale-105" />
+                <img src="/landing/overlay-principal.png" alt="Overlay Principal" className="w-full h-auto" />
              </div>
              {/* Floating Badge */}
              <motion.div 
                animate={{ y: [0, -10, 0] }}
                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-               className="absolute -bottom-6 -right-6 bg-[#111] p-4 rounded-xl border border-white/10 shadow-xl hidden md:block"
+               className="absolute -bottom-6 -left-6 bg-[#111] p-4 rounded-xl border border-white/10 shadow-xl hidden md:block"
              >
                 <div className="flex items-center gap-3">
                    <div className="p-2 bg-green-500/20 rounded-lg text-green-500"><Zap className="w-5 h-5" /></div>
@@ -293,7 +295,7 @@ export default function LandingPage() {
             className="order-1 lg:order-2"
           >
             <h2 className="text-sm font-bold text-(--accent) uppercase tracking-widest mb-4">Experiencia de Espectador</h2>
-            <h3 className="text-3xl md:text-5xl font-black italic uppercase leading-none mb-6">
+            <h3 className="text-2xl md:text-4xl font-black italic uppercase leading-none mb-6">
               Producción de Nivel <br/>Internacional
             </h3>
             <p className="text-white/60 text-lg font-light leading-relaxed mb-8">
@@ -318,11 +320,11 @@ export default function LandingPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-sm font-bold text-purple-500 uppercase tracking-widest mb-4">Control Total</h2>
-            <h3 className="text-3xl md:text-5xl font-black italic uppercase leading-none mb-6">
+            <h3 className="text-2xl md:text-4xl font-black italic uppercase leading-none mb-6">
               El cerebro de tu <br/>transmisión
             </h3>
             <p className="text-white/60 text-lg font-light leading-relaxed mb-8">
-              Un Dashboard diseñado para directores y relatores. Gestiona cámaras, banderas y datos sin perder de vista la acción en pista.
+              Un Dashboard diseñado para directores y relatores. Gestiona Overlays, banderas, semáforo y datos de la sesión sin perder de vista la acción en pista.
               Todo centralizado, todo en tiempo real.
             </p>
             <div className="grid grid-cols-2 gap-4 mt-8 uppercase italic text-gray-400">
@@ -377,70 +379,72 @@ export default function LandingPage() {
           >
              {/* Card 1: Pilotos */}
              <BentoCard 
-               image="/landing/gestion-pilotos-1.png"
+               image="/landing/SRM_Registrar-Pilotos-2.png"
                title="Gestión de Pilotos"
-               desc="Base de datos persistente. Actualiza fotos, equipos y estadísticas una sola vez."
+               desc="Base de datos persistente. Actualiza fotos, equipos y estadísticas una sola vez para todo el campeonato."
                badge="Base de Datos"
              />
              {/* Card 2: Publicidad */}
              <BentoCard 
-               image="/landing/gestion-publicidad.png"
+               image="/landing/SRM_Gestion-Publicitaria.png"
                title="Monetización Integrada"
                desc="Módulo dedicado para gestionar sponsors. Rota banners publicitarios automáticamente en el overlay."
                badge="Ingresos"
                accent="green"
              />
-             {/* Card 3: Semáforo */}
+             {/* Card 3: Banderas */}
              <BentoCard 
-               image="/landing/dashboard.png"
-               title="Semáforo Virtual"
-               desc="Sincronización visual precisa para largadas limpias. Control manual o automático desde el dashboard."
-               badge="Control de Carrera"
-             />
-             {/* Card 4: Votación */}
-             <BentoCard 
-               image="/landing/gestion-pilotos-2.png"
-               title="Interacción en Vivo"
-               desc="Encuestas y 'Piloto del Día' en tiempo real. Mantén a la audiencia conectada y participando."
-               badge="Engagement"
+               image="/landing/SRM_Control-Banderas.png"
+               title="Control de Banderas"
+               desc="Gestión de seguridad en pista. Despliega banderas con un solo clic."
+               badge="Dirección de Carrera"
                accent="orange"
+             />
+             {/* Card 4: Semáforo */}
+             <BentoCard 
+               image="/landing/SRM_Control-Semaforo.png"
+               title="Semáforo Virtual"
+               desc="Sincronización visual precisa para largadas limpias. Secuencia automática y control de aborto."
+               badge="Largada"
              />
              {/* Card 5: Clima */}
              <BentoCard 
-               image="/landing/clima-vivo.png"
-               title="Atmósfera en Vivo"
-               desc="Widget meteorológico conectado a la pista. Temperatura, lluvia y viento en tiempo real."
-               badge="Datos en Vivo"
+               image="/landing/SRM_Widget-Temperatura.png"
+               title="Widgets Climáticos"
+               desc="Visualización profesional de condiciones de pista y ambiente en tiempo real."
+               badge="Live Data"
                accent="blue"
              />
-             {/* Card 6: Grilla */}
+             {/* Card 6: Info Circuito */}
              <BentoCard 
-               image="/landing/grilla.png"
-               title="Parrillas Automáticas"
-               desc="Generación instantánea de grillas de largada basadas en la clasificación."
-               badge="Automatización"
-             />
-             {/* Card 7: Resultados */}
-             <BentoCard 
-               image="/landing/grilla.png"
-               title="Resultados Instantáneos"
-               desc="Tablas de posiciones finales generadas y publicadas automáticamente al caer la bandera a cuadros."
-               badge="Post-Carrera"
-             />
-             {/* Card 8: IA */}
-             <BentoCard 
-               image="/landing/info-circuito.png"
-               title="Narrativa Inteligente (IA)"
-               desc="Generación automática de comentarios y datos curiosos para enriquecer el relato de los casters."
-               badge="Innovación"
-               accent="blue"
-             />
-             {/* Card 9: Info Circuito */}
-             <BentoCard 
-               image="/landing/info-circuito.png"
-               title="Detalles del Circuito"
-               desc="Mapas del trazado, récords históricos y datos técnicos siempre a mano."
+               image="/landing/SRM_Informacion-Circuitos.png"
+               title="Info de Circuitos"
+               desc="Mapas del trazado, récords históricos y datos técnicos siempre disponibles para la transmisión."
                badge="Información"
+             />
+             {/* Card 7: Interacción */}
+             <BentoCard 
+               image="/landing/gestion-pilotos-2.png"
+               title="Interacción con el Público"
+               desc="Votación por QR de piloto destacado. Mantén a la audiencia conectada y participando."
+               badge="Engagement"
+               accent="orange"
+             />
+             {/* Card 8: Ficha Piloto */}
+             <BentoCard 
+               image="/landing/gestion-pilotos-1.png"
+               title="Ficha de Piloto"
+               desc="Visualización profesional de datos del piloto en el Overlay Principal durante la transmisión."
+               badge="Broadcast"
+               accent="green"
+             />
+             {/* Card 9: Integración */}
+             <BentoCard 
+               image="/landing/SRM_Control-Overlays.png"
+               title="Integración Universal"
+               desc="Capa de integración pasiva o activa. Conecta cualquier servicio de cronometraje copiando y pegando la URL."
+               badge="Conectividad"
+               accent="blue"
              />
           </motion.div>
         </div>
@@ -455,7 +459,7 @@ export default function LandingPage() {
            transition={{ duration: 0.6 }}
            className="z-10 max-w-3xl px-6"
          >
-            <h2 className="text-3xl md:text-5xl font-black italic uppercase mb-8 leading-tight">
+            <h2 className="text-2xl md:text-4xl font-black italic uppercase mb-8 leading-tight">
                ¿Listo para subir de nivel?
             </h2>
             <p className="text-xl font-light text-white/60 mb-10">
@@ -487,7 +491,7 @@ export default function LandingPage() {
                  <span onClick={() => handleOpenModal('demo')} className="text-xs font-mono text-white/30 hover:text-white transition-colors cursor-pointer uppercase tracking-widest">Contacto</span>
               </div>
             </div>
-            <div className="text-[10px] text-white/10 font-mono w-full text-center border-t border-white/5 pt-4">
+            <div className="text-sm text-white/10 font-mono w-full text-center border-t border-white/5 pt-4">
                Hecho en Argentina <span className="mx-1">🇦🇷</span> Potenciado por Pasión Automovilística
             </div>
          </div>
