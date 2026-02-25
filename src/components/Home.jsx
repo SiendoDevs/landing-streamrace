@@ -466,6 +466,44 @@ export default function LandingPage() {
                Únete a las ligas que ya están diferenciando sus transmisiones con nuestra tecnología.
                Deja de improvisar.
             </p>
+           <div className="mb-8 w-full">
+             <div className="hidden md:flex items-center justify-center gap-10">
+               <img
+                 src="/logo_ZN SPORT.png"
+                 alt="ZN Sport"
+                 className="h-16 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+               />
+               <img
+                 src="/Logo-APAK.svg"
+                 alt="APAK"
+                 className="h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+               />
+               <img
+                 src="/znpro-logo.svg"
+                 alt="ZN PRO"
+                 className="h-6 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+               />
+             </div>
+             <div className="md:hidden -mx-6 px-6">
+               <div className="flex items-center gap-6 overflow-x-auto no-scrollbar py-2 snap-x snap-mandatory">
+                 <img
+                   src="/logo_ZN SPORT.png"
+                   alt="ZN Sport"
+                  className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity snap-start shrink-0"
+                 />
+                 <img
+                   src="/Logo-APAK.svg"
+                   alt="APAK"
+                   className="h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity snap-start shrink-0"
+                 />
+                 <img
+                   src="/znpro-logo.svg"
+                   alt="ZN PRO"
+                  className="h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity snap-start shrink-0"
+                 />
+               </div>
+             </div>
+           </div>
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
