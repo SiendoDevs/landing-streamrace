@@ -13,6 +13,7 @@ import {
   ChevronRight,
   Menu,
   X,
+  DollarSign,
   Play
 } from "lucide-react";
 
@@ -102,6 +103,7 @@ export default function LandingPage() {
         <div className="hidden md:flex items-center gap-6">
           <a href="#showcase" onClick={scrollToSection('showcase')} className="text-xs font-bold uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">Showcase</a>
           <a href="#features" onClick={scrollToSection('features')} className="text-xs font-bold uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">Soluciones</a>
+          <Link to="/precios" className="text-xs font-bold uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">Precios</Link>
           <button 
             onClick={() => handleOpenModal('demo')}
             className="text-xs font-bold uppercase tracking-widest text-(--accent) hover:text-white transition-colors cursor-pointer"
@@ -149,6 +151,12 @@ export default function LandingPage() {
                       <span className="text-lg font-black uppercase italic tracking-wider text-white group-hover:pl-2 transition-all">Soluciones</span>
                       <ChevronRight className="ml-auto w-4 h-4 text-white/20 group-hover:text-white transition-colors" />
                   </a>
+
+                  <Link to="/precios" onClick={() => setIsMenuOpen(false)} className="group flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-all border border-transparent hover:border-white/5">
+                      <DollarSign className="w-5 h-5 text-white/40 group-hover:text-(--accent) transition-colors" />
+                      <span className="text-lg font-black uppercase italic tracking-wider text-white group-hover:pl-2 transition-all">Precios</span>
+                      <ChevronRight className="ml-auto w-4 h-4 text-white/20 group-hover:text-white transition-colors" />
+                  </Link>
                   
                   <div className="h-px bg-white/5 my-2 mx-4" />
 
@@ -236,7 +244,7 @@ export default function LandingPage() {
             <motion.a 
               whileHover={{ scale: 1.05, brightness: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              href="https://www.youtube.com/live/bbmD2Mqvq5E?si=SrfcX5wRw3PFoZvf"
+              href="https://www.youtube.com/live/3QlyPXkF4z8?si=d6WIN4CAm_HolD5j&t=25969"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto group px-6 py-3 md:px-8 md:py-4 text-sm md:text-base bg-(--accent) text-black font-bold uppercase italic tracking-wider rounded transition-all shadow-[0_0_40px_rgba(216,85,43,0.3)] hover:shadow-[0_0_60px_rgba(216,85,43,0.5)] flex items-center justify-center gap-3 cursor-pointer"

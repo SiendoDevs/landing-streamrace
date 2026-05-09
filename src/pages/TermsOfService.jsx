@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Scale, FileSignature, AlertTriangle, Copyright, Gavel, ChevronLeft, Ban } from "lucide-react";
-import Logo from "./Logo";
+import Logo from "../components/Logo";
 
 export default function TermsOfService() {
   const fadeInUp = {

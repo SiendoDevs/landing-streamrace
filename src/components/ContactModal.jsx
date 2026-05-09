@@ -46,7 +46,7 @@ const CustomInput = ({ id, label, ...props }) => (
   </div>
 );
 
-export default function ContactModal({ isOpen, onClose, initialType = "demo" }) {
+export default function ContactModal({ isOpen, onClose, initialType = "demo", initialPlan = "" }) {
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -54,6 +54,7 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo" }) 
     country: "",
     clientType: "Productora que cubre varias categorías",
     type: initialType,
+    plan: initialPlan,
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -80,9 +81,9 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo" }) 
 
   React.useEffect(() => {
     if (isOpen) {
-      setFormState(prev => ({ ...prev, type: initialType }));
+      setFormState(prev => ({ ...prev, type: initialType, plan: initialPlan }));
     }
-  }, [isOpen, initialType]);
+  }, [isOpen, initialType, initialPlan]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -111,6 +112,7 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo" }) 
           telefono: formState.phone,
           pais: formState.country,
           tipo_organizacion: formState.clientType,
+          plan_elegido: formState.plan || "Sin especificar",
           tipo_solicitud: formState.type === 'demo' ? 'Solicitud de Demo' : 'Solicitud de Acceso',
           mensaje: formState.message || "Sin mensaje adicional",
           _subject: `Nuevo Lead StreamRace: ${formState.name}`,
@@ -136,6 +138,7 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo" }) 
           country: "", 
           clientType: "Productora que cubre varias categorías",
           type: "demo", 
+          plan: "",
           message: "" 
         });
       }, 3000);
@@ -219,6 +222,14 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo" }) 
                             required
                             value={formState.name}
                             onChange={(e) => setFormState({...formState, name: e.target.value})}
+                        />
+
+                        <CustomInput 
+                            id="plan" 
+                            label="Plan" 
+                            placeholder="Sin plan seleccionado"
+                            value={formState.plan}
+                            readOnly
                         />
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

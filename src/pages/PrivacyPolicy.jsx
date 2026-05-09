@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Shield, Lock, Eye, FileText, ChevronLeft } from "lucide-react";
-import Logo from "./Logo";
+import Logo from "../components/Logo";
 
 export default function PrivacyPolicy() {
   const fadeInUp = {
