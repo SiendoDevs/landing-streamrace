@@ -23,25 +23,27 @@ export default function Pricing() {
       price: "Gratis",
       highlight: false,
       desc: "Sistema Streamrace completo para un solo evento.",
-      features: ["Branding de Streamrace", "Setup guiado", "Soporte estándar"],
+      features: ["Branding de Streamrace", "Setup guiado", "Base de Datos", "Cloud", "Soporte estándar"],
       cta: "Empezar gratis",
       type: "demo",
     },
     {
       name: "Pro",
       price: "US$ 99/mes",
+      annualPrice: 891,
       highlight: false,
       desc: "Sistema Streamrace completo.",
-      features: ["Setup guiado", "Soporte estándar", "Sin instancias simultáneas"],
+      features: ["Branding de Streamrace/Propio", "Setup guiado", "Base de Datos", "Cloud", "Soporte estándar", "Sin instancias simultáneas"],
       cta: "Elegir plan",
       type: "demo",
     },
     {
       name: "Broadcast",
       price: "US$ 249/mes",
+      annualPrice: 2241,
       highlight: true,
       desc: "Sistema Streamrace completo.",
-      features: ["Setup guiado", "Hasta 4 instancias simultáneas", "Soporte prioritario"],
+      features: ["Branding de Streamrace/Propio", "Setup guiado", "Base de Datos", "Cloud", "Hasta 4 instancias simultáneas", "Soporte prioritario"],
       cta: "Elegir plan",
       type: "demo",
     },
@@ -49,8 +51,8 @@ export default function Pricing() {
       name: "Enterprise",
       price: "Setup + US$ 449/mes",
       highlight: false,
-      desc: "Streamrace completo con White Label.",
-      features: ["Personalización a medida", "Setup guiado", "Hasta 4 instancias simultáneas", "Soporte prioritario"],
+      desc: "Streamrace completo con Marca Blanca.",
+      features: ["Personalización a medida", "Setup guiado", "Base de Datos", "Cloud", "Multiples instancias simultáneas", "Soporte prioritario"],
       cta: "Hablar con ventas",
       type: "demo",
     },
@@ -109,7 +111,7 @@ export default function Pricing() {
             </h1>
 
             <p className="mt-5 text-white/50 text-lg max-w-2xl">
-             Te ofrecemos una version Trial gratis para que pruebes todo el potencial de Streamrace.
+             Te ofrecemos una version de prueba gratis para que despliegues todo el potencial de Streamrace® en tu transmisión. Duración de 7 días o un evento.
             </p>
           </motion.div>
 
@@ -133,18 +135,46 @@ export default function Pricing() {
                 )}
 
                 <div className="relative flex flex-col h-full">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <div className="text-xs font-bold uppercase tracking-widest text-white/55">{p.name}</div>
-                      <div className="mt-3 text-2xl font-black italic uppercase tracking-tight leading-none">{p.price}</div>
-                      <div className="mt-3 text-sm text-white/45 leading-relaxed">{p.desc}</div>
-                    </div>
-
-                    {p.highlight && (
-                      <div className="shrink-0 px-3 py-1 rounded-full bg-(--accent) text-black text-[10px] font-black uppercase tracking-widest">
-                        Recomendado
+                  <div className="flex items-start gap-4">
+                    <div className="w-full">
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="text-xs font-bold uppercase tracking-widest text-white/55">{p.name}</div>
+                        {p.highlight && (
+                          <div className="shrink-0 px-3 py-1 rounded-full bg-(--accent) text-black text-[10px] font-black uppercase tracking-widest">
+                            Recomendado
+                          </div>
+                        )}
                       </div>
-                    )}
+
+                      <div className="mt-3 text-2xl font-black italic uppercase tracking-tight leading-none">{p.price}</div>
+
+                      {p.annualPrice && (
+                        <div className="mt-3 grid gap-2 w-full">
+                          <span
+                            className={[
+                              "w-full inline-flex items-center justify-center rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-widest border",
+                              p.highlight
+                                ? "bg-(--accent)/10 border-(--accent)/25 text-(--accent)"
+                                : "bg-white/5 border-white/10 text-white/60",
+                            ].join(" ")}
+                          >
+                            -25% anual
+                          </span>
+                          <span
+                            className={[
+                              "w-full inline-flex items-center justify-center rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-widest border",
+                              p.highlight
+                                ? "bg-white/5 border-white/15 text-white"
+                                : "bg-white/5 border-white/10 text-white/80",
+                            ].join(" ")}
+                          >
+                            US$ {p.annualPrice}/año
+                          </span>
+                        </div>
+                      )}
+
+                      <div className="mt-3 text-sm text-white/45 leading-relaxed w-full">{p.desc}</div>
+                    </div>
                   </div>
 
                   <ul className="mt-6 space-y-3 text-sm text-white/70">
