@@ -7,7 +7,10 @@ import Logo from "./Logo";
 const ContactModal = React.lazy(() => import("./ContactModal"));
 import { 
   Zap,  Tv, 
-  Trophy, 
+  Trophy,
+  Users,
+  Boxes,
+  ShieldCheck,
   LayoutDashboard, 
   Cloud, 
   ChevronRight,
@@ -236,9 +239,32 @@ export default function LandingPage() {
             </div>
           </motion.div>
 
-          <motion.p variants={fadeInUp} className="text-base sm:text-lg md:text-xl text-white/50 font-light mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed">
-            Convierte cualquier transmisión local en un espectáculo televisivo — sin operadores extra y con superposiciones automáticas que actualizan al instante.
+          <motion.p variants={fadeInUp} className="text-base sm:text-lg md:text-xl text-white/50 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+            Controlá overlays, publicidad, banderas, circuitos, pilotos, clima y mucho más desde una única plataforma.
           </motion.p>
+
+          <motion.div variants={fadeInUp} className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-4xl mx-auto mb-8 md:mb-12">
+            <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-4 text-center backdrop-blur-sm">
+              <Tv className="w-5 h-5 md:w-6 md:h-6 text-(--accent) mx-auto mb-3" />
+              <div className="text-xl md:text-2xl font-black italic text-white">50+</div>
+              <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50 mt-1">Transmisiones</div>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-4 text-center backdrop-blur-sm">
+              <Users className="w-5 h-5 md:w-6 md:h-6 text-(--accent) mx-auto mb-3" />
+              <div className="text-xl md:text-2xl font-black italic text-white">100.000+</div>
+              <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50 mt-1">Espectadores</div>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-4 text-center backdrop-blur-sm">
+              <Boxes className="w-5 h-5 md:w-6 md:h-6 text-(--accent) mx-auto mb-3" />
+              <div className="text-xl md:text-2xl font-black italic text-white">3</div>
+              <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50 mt-1">Productos Integrados</div>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-4 text-center backdrop-blur-sm">
+              <ShieldCheck className="w-5 h-5 md:w-6 md:h-6 text-(--accent) mx-auto mb-3" />
+              <div className="text-xl md:text-2xl font-black italic text-white">99.9%</div>
+              <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50 mt-1">Uptime</div>
+            </div>
+          </motion.div>
 
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
             <motion.a 
@@ -252,15 +278,15 @@ export default function LandingPage() {
               <Play className="w-4 h-4 md:w-5 md:h-5 fill-current" />
               Demo en Vivo
             </motion.a>
-            <motion.button 
+            <motion.a 
               whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
               whileTap={{ scale: 0.95 }}
-              onClick={scrollToSection('features')}
+              href="/precios"
               className="w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 text-sm md:text-base bg-transparent border border-white/20 text-white font-bold uppercase tracking-wider rounded transition-all flex items-center justify-center gap-2 group"
             >
-              Explorar Características
+              Probar Gratis
               <ChevronRight className="w-3 h-3 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>
@@ -304,15 +330,15 @@ export default function LandingPage() {
           >
             <h2 className="text-sm font-bold text-(--accent) uppercase tracking-widest mb-4">Experiencia de Espectador</h2>
             <h3 className="text-2xl md:text-4xl font-black italic uppercase leading-none mb-6">
-              Producción de Nivel <br/>Internacional
+              Producción Profesional <br/>para cada Carrera
             </h3>
             <p className="text-white/60 text-lg font-light leading-relaxed mb-8">
-              Tus patrocinadores merecen verse bien. Ofrece una experiencia visual idéntica a las grandes categorías mundiales, sin los costos de un estudio de TV.
+              Controlá gráficos, publicidad, banderas, clima, posiciones y contenido en vivo desde una única plataforma diseñada para automovilismo.
             </p>
             <ul className="space-y-4 italic uppercase">
-               <FeatureItem text="Animaciones Fluidas a 60 FPS" />
-               <FeatureItem text="Sincronización milimétrica con Cronometraje" />
-               <FeatureItem text="Diseño limpio que no tapa la acción" />
+               <FeatureItem text="Gestión centralizada de toda la transmisión" />
+               <FeatureItem text="Integración con cronometraje en tiempo real" />
+               <FeatureItem text="Operación rápida, estable y profesional" />
             </ul>
           </motion.div>
         </div>
@@ -332,7 +358,7 @@ export default function LandingPage() {
               El cerebro de tu <br/>transmisión
             </h3>
             <p className="text-white/60 text-lg font-light leading-relaxed mb-8">
-              Un Dashboard diseñado para directores y relatores. Gestiona Overlays, banderas, semáforo y datos de la sesión sin perder de vista la acción en pista.
+              Un Dashboard diseñado para directores y relatores. Gestiona Overlays, banderas, semáforo, sanciones, comunicación de carrera y datos de la sesión sin perder de vista la acción en pista.
               Todo centralizado, todo en tiempo real.
             </p>
             <div className="grid grid-cols-2 gap-4 mt-8 uppercase italic text-gray-400">
@@ -365,6 +391,148 @@ export default function LandingPage() {
         </div>
       </section>
 
+      <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-14"
+          >
+            <h2 className="text-3xl md:text-5xl font-black italic uppercase mb-4">Gráficos que Venden</h2>
+            <p className="text-white/50 max-w-2xl mx-auto">
+             Creá títulos, escenas personalizadas, noticias y más para salir al aire.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#0a0a0a] shadow-2xl"
+            >
+              <div className="absolute -inset-1 bg-linear-to-l from-blue-600 to-purple-600 rounded-2xl blur opacity-15"></div>
+              <div className="relative">
+                <img src="/landing/Graph-Titulos.png" alt="Graph Títulos" className="w-full h-auto" />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#0a0a0a] shadow-2xl"
+            >
+              <div className="absolute -inset-1 bg-linear-to-l from-blue-600 to-purple-600 rounded-2xl blur opacity-15"></div>
+              <div className="relative">
+                <img src="/landing/Noticias.png" alt="Noticias" className="w-full h-auto" />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 relative overflow-hidden border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-sm font-bold text-(--accent) uppercase tracking-widest mb-4">Presencia Comercial</h2>
+            <h3 className="text-2xl md:text-4xl font-black italic uppercase leading-none mb-6">
+              Anuncios donde <br/>más importan
+            </h3>
+            <p className="text-white/60 text-lg font-light leading-relaxed mb-8">
+              Gestioná anuncios en los momentos clave de cada carrera, dando visibilidad real a las marcas que acompañan el evento sin tapar la información crítica ni romper la experiencia de transmisión.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 uppercase italic text-gray-400">
+              <motion.div whileHover={{ scale: 1.03 }} className="p-4 bg-white/5 rounded-lg border border-white/5 hover:border-white/10 transition-colors">
+                <div className="font-black text-lg text-white">Mayor visibilidad</div>
+                <div className="text-sm text-white/50 normal-case not-italic mt-1">Ubicación estratégica para sponsors sin invadir la carrera.</div>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.03 }} className="p-4 bg-white/5 rounded-lg border border-white/5 hover:border-white/10 transition-colors">
+                <div className="font-black text-lg text-white">Guion para el relator</div>
+                <div className="text-sm text-white/50 normal-case not-italic mt-1">Ordená cada salida comercial sin perder el hilo de la carrera.</div>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative group perspective-1000"
+          >
+            <div className="absolute -inset-1 bg-linear-to-l from-blue-600 to-purple-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+            <motion.div
+              whileHover={{ rotateY: 5, rotateX: 5 }}
+              className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-[#0a0a0a]"
+            >
+              <img src="/landing/Gestion-Anuncios.png" alt="Gestión de anuncios en carrera" className="w-full h-auto" />
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-[#060606] border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-5xl font-black italic uppercase mb-4 flex flex-wrap items-center justify-center gap-3">
+              <span>Ecosistema</span>
+              <Logo className="h-7 md:h-10 w-auto object-contain" />
+            </h2>
+            <p className="text-white/50 max-w-3xl mx-auto">
+              No es un único producto. Es una suite conectada para producir, gestionar y seguir cada campeonato.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="rounded-2xl border border-white/10 bg-white/5 p-8">
+              <div className="flex items-center justify-between gap-3 mb-4">
+                <div className="text-xs font-bold uppercase tracking-widest text-(--accent)">Streamrace Broadcast</div>
+                <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white/80">v2.5</span>
+              </div>
+              <h3 className="text-2xl font-black italic uppercase text-white mb-4">Producción profesional</h3>
+              <p className="text-white/60 leading-relaxed">Overlays, escenas, anuncios, banderas y control visual en tiempo real para transmisiones de automovilismo.</p>
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.05 }} className="rounded-2xl border border-white/10 bg-white/5 p-8">
+              <div className="flex items-center justify-between gap-3 mb-4">
+                <div className="text-xs font-bold uppercase tracking-widest text-(--accent)">Streamrace Manager</div>
+                <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-amber-300">Próximamente</span>
+              </div>
+              <h3 className="text-2xl font-black italic uppercase text-white mb-4">Gestión de campeonatos</h3>
+              <p className="text-white/60 leading-relaxed">Pilotos, equipos, fechas, reglamentos, sponsors y operación centralizada para organizar cada evento con orden profesional.</p>
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="rounded-2xl border border-white/10 bg-white/5 p-8">
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+                <div className="text-xs font-bold uppercase tracking-widest text-(--accent)">Streamrace Live Timing</div>
+                <span className="rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-green-300">En vivo</span>
+              </div>
+              <h3 className="text-2xl font-black italic uppercase text-white mb-4">Resultados y seguimiento en vivo</h3>
+              <p className="text-white/60 leading-relaxed mb-6">Tiempos, posiciones y datos de sesión actualizados al instante para equipos, relatores, dirección de carrera y audiencia.</p>
+              <a href="https://live.streamrace.solutions" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-5 py-3 text-sm font-bold uppercase tracking-wider text-white transition-all hover:bg-white/10 hover:border-white/25">
+                Ir a Live Timing
+                <ChevronRight className="w-4 h-4" />
+              </a>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Grid of Features */}
       <section id="features" className="py-24 bg-[#080808] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6">
@@ -374,8 +542,8 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-black italic uppercase mb-4">Ecosistema Integral</h2>
-            <p className="text-white/50 max-w-2xl mx-auto">Cada aspecto de la competición, cubierto por módulos especializados.</p>
+            <h2 className="text-3xl md:text-5xl font-black italic uppercase mb-4">Todo para tu transmisión</h2>
+            <p className="text-white/50 max-w-2xl mx-auto">Módulos listos para operar, monetizar y elevar cada carrera.</p>
           </motion.div>
 
           <motion.div 
@@ -388,22 +556,22 @@ export default function LandingPage() {
              {/* Card 1: Pilotos */}
              <BentoCard 
                image="/landing/SRM_Registrar-Pilotos-2.png"
-               title="Gestión de Pilotos"
-               desc="Base de datos persistente. Actualiza fotos, equipos y estadísticas una sola vez para todo el campeonato."
-               badge="Base de Datos"
+               title="Base de Datos Inteligente"
+               desc="Configura una vez, brilla todo el campeonato. Olvídate de editar datos antes de cada carrera. Actualiza fotos, escuderías y estadísticas en un solo clic y mantén la información unificada de principio a fin."
+               badge="Gestion de Pilotos"
              />
              {/* Card 2: Publicidad */}
              <BentoCard 
                image="/landing/SRM_Gestion-Publicitaria.png"
-               title="Monetización Integrada"
-               desc="Módulo dedicado para gestionar sponsors. Rota banners publicitarios automáticamente en el overlay."
-               badge="Ingresos"
+               title="Monetización en Piloto Automático"
+               desc="Haz tu transmisión rentable. Sácale partido a tus patrocinadores con un sistema inteligente de rotación de banners en el overlay. Automatiza la publicidad sin interrumpir la acción en pista."
+               badge="Publicidad"
                accent="green"
              />
              {/* Card 3: Banderas */}
              <BentoCard 
                image="/landing/SRM_Control-Banderas.png"
-               title="Control de Banderas"
+               title="Control de Carrera Instantáneo"
                desc="Gestión de seguridad en pista. Despliega banderas con un solo clic."
                badge="Dirección de Carrera"
                accent="orange"
@@ -419,14 +587,14 @@ export default function LandingPage() {
              <BentoCard 
                image="/landing/SRM_Widget-Temperatura.png"
                title="Widgets Climáticos"
-               desc="Visualización profesional de condiciones de pista y ambiente en tiempo real."
+               desc="El clima en tiempo real. Sumerge a tu audiencia en la estrategia de carrera. Muestra datos climáticos y el estado de la pista en vivo."
                badge="Live Data"
                accent="blue"
              />
              {/* Card 6: Info Circuito */}
              <BentoCard 
                image="/landing/SRM_Informacion-Circuitos.png"
-               title="Info de Circuitos"
+               title="Biblioteca de Circuitos"
                desc="Mapas del trazado, récords históricos y datos técnicos siempre disponibles para la transmisión."
                badge="Información"
              />
@@ -450,7 +618,7 @@ export default function LandingPage() {
              <BentoCard 
                image="/landing/SRM_Control-Overlays.png"
                title="Integración Universal"
-               desc="Capa de integración pasiva o activa. Conecta cualquier servicio de cronometraje copiando y pegando la URL."
+               desc="Conecta tu sistema de cronometraje en 3 segundos. Sin configuraciones complejas ni código. Copia y pega la URL de tu servicio de cronometraje actual (activo o pasivo) y nuestra plataforma se encargará del resto de forma automática."
                badge="Conectividad"
                accent="blue"
              />
