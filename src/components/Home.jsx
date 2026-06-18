@@ -499,6 +499,7 @@ export default function LandingPage() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="rounded-2xl border border-white/10 bg-white/5 p-8">
               <div className="flex items-center justify-between gap-3 mb-4">
                 <div className="text-xs font-bold uppercase tracking-widest text-(--accent)">Streamrace Broadcast</div>
@@ -506,15 +507,6 @@ export default function LandingPage() {
               </div>
               <h3 className="text-2xl font-black italic uppercase text-white mb-4">Producción profesional</h3>
               <p className="text-white/60 leading-relaxed">Overlays, escenas, anuncios, banderas y control visual en tiempo real para transmisiones de automovilismo.</p>
-            </motion.div>
-
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.05 }} className="rounded-2xl border border-white/10 bg-white/5 p-8">
-              <div className="flex items-center justify-between gap-3 mb-4">
-                <div className="text-xs font-bold uppercase tracking-widest text-(--accent)">Streamrace Manager</div>
-                <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-amber-300">Próximamente</span>
-              </div>
-              <h3 className="text-2xl font-black italic uppercase text-white mb-4">Gestión de campeonatos</h3>
-              <p className="text-white/60 leading-relaxed">Pilotos, equipos, fechas, reglamentos, sponsors y operación centralizada para organizar cada evento con orden profesional.</p>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="rounded-2xl border border-white/10 bg-white/5 p-8">
@@ -529,6 +521,16 @@ export default function LandingPage() {
                 <ChevronRight className="w-4 h-4" />
               </a>
             </motion.div>
+
+             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.05 }} className="rounded-2xl border border-white/10 bg-white/5 p-8">
+              <div className="flex items-center justify-between gap-3 mb-4">
+                <div className="text-xs font-bold uppercase tracking-widest text-(--accent)">Streamrace Manager</div>
+                <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-amber-300">Próximamente</span>
+              </div>
+              <h3 className="text-2xl font-black italic uppercase text-white mb-4">Gestión de campeonatos</h3>
+              <p className="text-white/60 leading-relaxed">Pilotos, equipos, fechas, reglamentos, sponsors y operación centralizada para organizar cada evento con orden profesional.</p>
+            </motion.div>
+            
           </div>
         </div>
       </section>
