@@ -19,40 +19,41 @@ export default function Pricing() {
 
   const plans = [
     {
-      name: "Trial",
-      price: "Gratis",
+      name: "Founder",
+      price: "US$ 49/mes",
+      annualPrice: 439,
       highlight: false,
-      desc: "Sistema Streamrace completo para un solo evento.",
-      features: ["Branding de Streamrace", "Setup guiado", "Base de Datos", "Cloud", "Soporte estándar"],
-      cta: "Empezar gratis",
+      desc: "Sistema Streamrace completo para socios fundadores.",
+      features: ["Branding de Streamrace", "Setup guiado", "Base de Datos", "Cloud", "Soporte con el desarrollador", "Cupos Limitados", "Eventos simultaneos hasta 3 por año."],
+      cta: "Elegir plan",
       type: "demo",
     },
     {
       name: "Pro",
-      price: "US$ 99/mes",
-      annualPrice: 891,
+      price: "US$ 79/mes",
+      annualPrice: 699,
       highlight: false,
       desc: "Sistema Streamrace completo.",
-      features: ["Branding de Streamrace/Propio", "Setup guiado", "Base de Datos", "Cloud", "Soporte estándar", "Sin instancias simultáneas"],
+      features: ["Branding de Streamrace/Propio", "Setup guiado", "Base de Datos", "Cloud", "Soporte Standard", "2 instancias simultáneas"],
       cta: "Elegir plan",
       type: "demo",
     },
     {
-      name: "Broadcast",
-      price: "US$ 249/mes",
-      annualPrice: 2241,
+      name: "Premium",
+      price: "US$ 129/mes",
+      annualPrice: 1199,
       highlight: true,
       desc: "Sistema Streamrace completo.",
-      features: ["Branding de Streamrace/Propio", "Setup guiado", "Base de Datos", "Cloud", "Hasta 4 instancias simultáneas", "Soporte prioritario"],
+      features: ["Branding de Streamrace/Propio", "Setup guiado", "Base de Datos", "Cloud", "Hasta 3 instancias simultáneas", "Soporte prioritario"],
       cta: "Elegir plan",
       type: "demo",
     },
     {
-      name: "Enterprise",
-      price: "Setup + US$ 449/mes",
+      name: "Studio",
+      price: "Consultar",
       highlight: false,
       desc: "Streamrace completo con Marca Blanca.",
-      features: ["Personalización a medida", "Setup guiado", "Base de Datos", "Cloud", "Multiples instancias simultáneas", "Soporte prioritario"],
+      features: ["Personalización a medida", "Setup personalizado", "Base de Datos", "Cloud", "Multiples instancias simultáneas", "Soporte prioritario"],
       cta: "Hablar con ventas",
       type: "demo",
     },
@@ -111,7 +112,7 @@ export default function Pricing() {
             </h1>
 
             <p className="mt-5 text-white/50 text-lg max-w-2xl">
-             Te ofrecemos una version de prueba gratis para que despliegues todo el potencial de Streamrace® en tu transmisión. Duración de 7 días o un evento.
+             Agendá una demo personalizada de 30 minutos y descubrí cómo Streamrace puede transformar tus transmisiones.
             </p>
           </motion.div>
 
