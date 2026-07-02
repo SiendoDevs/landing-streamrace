@@ -1,10 +1,9 @@
-import React, { useState, Suspense } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 import ErrorBoundary from "./ErrorBoundary";
 import Logo from "./Logo";
-const ContactModal = React.lazy(() => import("./ContactModal"));
+import ContactModal from "./ContactModal";
 import { 
   Zap,  Tv, 
   Trophy,
@@ -63,12 +62,7 @@ export default function LandingPage() {
   };
 
   // Preload del modal para mejorar la velocidad de apertura
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      import("./ContactModal");
-    }, 1500); // Pre-carga después de 1.5s para no bloquear la carga inicial
-    return () => clearTimeout(timer);
-  }, []);
+  // Removed: useEffect que causaba flickering innecesario
 
   return (
     <div 
@@ -76,20 +70,12 @@ export default function LandingPage() {
       style={{ "--accent": "#D8552B" }}
     >
       
-      {/* Modal - Lazy Loaded con Fallback visual */}
-      <Suspense fallback={
-        isModalOpen ? (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-             <div className="w-10 h-10 border-4 border-white/10 border-t-(--accent) rounded-full animate-spin"></div>
-          </div>
-        ) : null
-      }>
-        <ContactModal 
-          isOpen={isModalOpen} 
-          onClose={() => setIsModalOpen(false)} 
-          initialType={modalType}
-        />
-      </Suspense>
+      {/* Modal - Cargado directamente */}
+      <ContactModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        initialType={modalType}
+      />
 
       {/* Navbar */}
       <motion.nav 

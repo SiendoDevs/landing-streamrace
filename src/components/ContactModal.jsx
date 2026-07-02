@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle, AlertCircle, X, ChevronDown, Send } from "lucide-react";
 import * as RPNInput from "react-phone-number-input";
