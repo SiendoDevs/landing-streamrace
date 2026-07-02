@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
 import Logo from "../components/Logo";
+import SEO from "../components/SEO";
 import PricingCard from "../components/pricing/PricingCard";
 import ContactModal from "../components/ContactModal";
 import { cloudPlans, desktopPlans, connectPlans } from "../components/pricing/pricingConfig";
@@ -50,6 +51,43 @@ export default function Pricing() {
       className="min-h-screen bg-[#050505] text-white flex flex-col font-sans selection:bg-(--accent) selection:text-black overflow-x-hidden"
       style={{ "--accent": "#D8552B" }}
     >
+      <SEO
+        title="Planes y Precios de StreamRace - Cloud, Desktop y Connect"
+        description="Descubre los planes de StreamRace: Cloud desde US$ 49/mes, Desktop desde US$ 1490, Connect desde US$ 29/mes. Soluciones para todos los tipos de producción de carreras."
+        url="https://streamrace.solutions/precios"
+        schemaData={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Planes y Precios de StreamRace",
+          "url": "https://streamrace.solutions/precios",
+          "mainEntity": {
+            "@type": "Product",
+            "@id": "#cloud-plans",
+            "name": "StreamRace Cloud",
+            "description": "Sistema cloud para streaming de carreras",
+            "offers": [
+              {
+                "@type": "Offer",
+                "name": "Founder",
+                "priceCurrency": "USD",
+                "price": "49"
+              },
+              {
+                "@type": "Offer",
+                "name": "Pro",
+                "priceCurrency": "USD",
+                "price": "79"
+              },
+              {
+                "@type": "Offer",
+                "name": "Premium",
+                "priceCurrency": "USD",
+                "price": "129"
+              }
+            ]
+          }
+        }}
+      />
       <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} initialType={modalType} initialPlan={selectedPlan} />
 
       <nav className="flex items-center justify-between px-6 py-5 md:px-12 border-b border-white/5 bg-black/60 backdrop-blur-xl sticky top-0 z-50">

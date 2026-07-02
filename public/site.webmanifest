@@ -1,0 +1,66 @@
+{
+  "name": "StreamRace - Sistema de Overlays Profesional para Carreras",
+  "short_name": "StreamRace",
+  "description": "Solución profesional para streaming de carreras con overlays, timing en vivo y gráficas dinámicas",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#D8552B",
+  "background_color": "#050505",
+  "categories": ["productivity", "utilities"],
+  "screenshots": [
+    {
+      "src": "/screenshot-small.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/screenshot-large.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Ver Precios",
+      "short_name": "Precios",
+      "description": "Ver planes y precios de StreamRace",
+      "url": "/precios",
+      "icons": [
+        {
+          "src": "/favicon.ico",
+          "sizes": "192x192",
+          "type": "image/x-icon"
+        }
+      ]
+    },
+    {
+      "name": "Solicitar Demo",
+      "short_name": "Demo",
+      "description": "Solicitar una demostración de StreamRace",
+      "url": "/?modal=demo",
+      "icons": [
+        {
+          "src": "/favicon.ico",
+          "sizes": "192x192",
+          "type": "image/x-icon"
+        }
+      ]
+    }
+  ]
+}

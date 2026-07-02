@@ -1,0 +1,23 @@
+# robots.txt - Indicar a los motores de búsqueda qué indexar
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /*.json$
+
+# Delay for crawlers (in seconds)
+Crawl-delay: 2
+
+# Sitemap
+Sitemap: https://streamrace.solutions/sitemap.xml
+
+# Specific rules for Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: DotBot
+Disallow: /

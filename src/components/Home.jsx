@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ErrorBoundary from "./ErrorBoundary";
 import Logo from "./Logo";
 import ContactModal from "./ContactModal";
+import SEO from "./SEO";
 import { 
   Zap,  Tv, 
   Trophy,
@@ -69,6 +70,26 @@ export default function LandingPage() {
       className="min-h-screen bg-[#050505] text-white flex flex-col font-sans selection:bg-(--accent) selection:text-black overflow-x-hidden"
       style={{ "--accent": "#D8552B" }}
     >
+      
+      <SEO
+        title="StreamRace - Sistema de Overlays Profesional para Transmisión de Carreras"
+        description="Solución profesional para streaming de carreras. Overlays personalizados, timing en vivo, gráficas dinámicas y funciones online. Disponible en Cloud, Desktop y Connect."
+        url="https://streamrace.solutions/"
+        schemaData={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "StreamRace",
+          "description": "Sistema profesional de overlays para transmisión de carreras",
+          "url": "https://streamrace.solutions",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "Windows, macOS, Web",
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "USD",
+            "price": "29"
+          }
+        }}
+      />
       
       {/* Modal - Cargado directamente */}
       <ContactModal 
