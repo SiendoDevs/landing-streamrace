@@ -52,18 +52,18 @@ export default function Pricing() {
       style={{ "--accent": "#D8552B" }}
     >
       <SEO
-        title="Planes y Precios de StreamRace - Cloud, Desktop y Connect"
-        description="Descubre los planes de StreamRace: Cloud desde US$ 49/mes, Desktop desde US$ 1490, Connect desde US$ 29/mes. Soluciones para todos los tipos de producción de carreras."
+        title="Planes y Precios de Streamrace - Cloud, Desktop y Connect"
+        description="Descubre los planes de Streamrace: Cloud desde US$ 49/mes, Desktop desde US$ 1490, Connect desde US$ 29/mes. Soluciones para todos los tipos de producción de carreras."
         url="https://streamrace.solutions/precios"
         schemaData={{
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          "name": "Planes y Precios de StreamRace",
+          "name": "Planes y Precios de Streamrace",
           "url": "https://streamrace.solutions/precios",
           "mainEntity": {
             "@type": "Product",
             "@id": "#cloud-plans",
-            "name": "StreamRace Cloud",
+            "name": "Streamrace Cloud",
             "description": "Sistema cloud para streaming de carreras",
             "offers": [
               {

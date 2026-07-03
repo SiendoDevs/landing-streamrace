@@ -114,7 +114,7 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo", in
           plan_elegido: formState.plan || "Sin especificar",
           tipo_solicitud: formState.type === 'demo' ? 'Solicitud de Demo' : 'Solicitud de Acceso',
           mensaje: formState.message || "Sin mensaje adicional",
-          _subject: `Nuevo Lead StreamRace: ${formState.name}`,
+          _subject: `Nuevo Lead Streamace®: ${formState.name}`,
           _template: "table", // Formato tabla ordenado
           _captcha: "false"   // Desactivar captcha para mejor UX
         })

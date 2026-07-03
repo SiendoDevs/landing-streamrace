@@ -1,6 +1,6 @@
 {
-  "name": "StreamRace - Sistema de Overlays Profesional para Carreras",
-  "short_name": "StreamRace",
+  "name": "Streamrace® - Sistema de Overlays Profesional para Carreras",
+  "short_name": "Streamrace",
   "description": "Solución profesional para streaming de carreras con overlays, timing en vivo y gráficas dinámicas",
   "start_url": "/",
   "scope": "/",
@@ -39,7 +39,7 @@
     {
       "name": "Ver Precios",
       "short_name": "Precios",
-      "description": "Ver planes y precios de StreamRace",
+      "description": "Ver planes y precios de Streamrace®",
       "url": "/precios",
       "icons": [
         {
@@ -52,7 +52,7 @@
     {
       "name": "Solicitar Demo",
       "short_name": "Demo",
-      "description": "Solicitar una demostración de StreamRace",
+      "description": "Solicitar una demostración de Streamrace®",
       "url": "/?modal=demo",
       "icons": [
         {

@@ -49,7 +49,7 @@ export default function TermsOfService() {
           {/* Aceptación */}
           <Section title="1. Aceptación de los Términos" icon={<FileSignature />}>
             <p>
-              Al acceder y utilizar <strong>StreamRace Solutions</strong> ("el Servicio"), aceptas cumplir y estar legalmente obligado por estos Términos y Condiciones. 
+              Al acceder y utilizar <strong>Streamrace Solutions</strong> ("el Servicio"), aceptas cumplir y estar legalmente obligado por estos Términos y Condiciones. 
               Si no estás de acuerdo con alguno de estos términos, te rogamos que no utilices el Servicio.
             </p>
           </Section>
@@ -69,7 +69,7 @@ export default function TermsOfService() {
           {/* Propiedad Intelectual */}
           <Section title="3. Propiedad Intelectual" icon={<Copyright />}>
             <p>
-              El Servicio, incluyendo su diseño, código, gráficos (overlays), logotipos y funcionalidades, es propiedad exclusiva de StreamRace Solutions. 
+              El Servicio, incluyendo su diseño, código, gráficos (overlays), logotipos y funcionalidades, es propiedad exclusiva de Streamrace Solutions. 
               El uso del Servicio no te otorga derechos de propiedad sobre el mismo, salvo el derecho de uso limitado descrito anteriormente.
             </p>
           </Section>
@@ -98,7 +98,7 @@ export default function TermsOfService() {
           {/* Ley Aplicable */}
           <Section title="6. Ley Aplicable" icon={<Gavel />}>
             <p>
-              Estos Términos se regirán e interpretarán de acuerdo con las leyes vigentes en el país de residencia del propietario de StreamRace Solutions, sin tener en cuenta sus disposiciones sobre conflictos de leyes.
+              Estos Términos se regirán e interpretarán de acuerdo con las leyes vigentes en el país de residencia del propietario de Streamrace Solutions, sin tener en cuenta sus disposiciones sobre conflictos de leyes.
             </p>
           </Section>
 

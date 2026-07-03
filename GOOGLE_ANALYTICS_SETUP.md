@@ -4,7 +4,7 @@
 
 1. Ve a [Google Analytics](https://analytics.google.com/)
 2. Click en "Crear propiedad"
-3. Nombre: "StreamRace Landing"
+3. Nombre: "Streamrace Landing"
 4. Ubicación: Argentina
 5. Timezone: Selecciona tu zona horaria
 6. Industria: Software/Aplicaciones

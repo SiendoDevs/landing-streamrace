@@ -72,13 +72,13 @@ export default function LandingPage() {
     >
       
       <SEO
-        title="StreamRace - Sistema de Overlays Profesional para Transmisión de Carreras"
+        title="Streamrace - Sistema de Overlays Profesional para Transmisión de Carreras"
         description="Solución profesional para streaming de carreras. Overlays personalizados, timing en vivo, gráficas dinámicas y funciones online. Disponible en Cloud, Desktop y Connect."
         url="https://streamrace.solutions/"
         schemaData={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "StreamRace",
+          "name": "Streamrace",
           "description": "Sistema profesional de overlays para transmisión de carreras",
           "url": "https://streamrace.solutions",
           "applicationCategory": "MultimediaApplication",
@@ -702,9 +702,9 @@ export default function LandingPage() {
          <div className="mt-20 pt-10 border-t border-white/5 w-full max-w-7xl px-6 flex flex-col items-center text-center">
             <div className="flex flex-col md:flex-row justify-between items-center w-full mb-8 gap-6">
               <div className="text-left">
-                 <div className="text-xs font-mono text-white/30 uppercase tracking-widest mb-2">&copy; {new Date().getFullYear()} StreamRace® Solutions</div>
+                 <div className="text-xs font-mono text-white/30 uppercase tracking-widest mb-2">&copy; {new Date().getFullYear()} Streamrace® Solutions</div>
                  <div className="text-[10px] text-white/20 max-w-md">
-                    Todos los derechos reservados. StreamRace y el logotipo de StreamRace son marcas comerciales registradas. 
+                    Todos los derechos reservados. Streamrace y el logotipo de Streamrace son marcas comerciales registradas. 
                     El software está protegido por leyes de derechos de autor y tratados internacionales.
                  </div>
               </div>
