@@ -5,7 +5,7 @@ import Logo from "../components/Logo";
 import SEO from "../components/SEO";
 import PricingCard from "../components/pricing/PricingCard";
 import ContactModal from "../components/ContactModal";
-import { cloudPlans, desktopPlans, connectPlans } from "../components/pricing/pricingConfig";
+import { cloudPlans, desktopPlans } from "../components/pricing/pricingConfig";
 
 export default function Pricing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -52,8 +52,8 @@ export default function Pricing() {
       style={{ "--accent": "#D8552B" }}
     >
       <SEO
-        title="Planes y Precios de Streamrace - Cloud, Desktop y Connect"
-        description="Descubre los planes de Streamrace: Cloud desde US$ 49/mes, Desktop desde US$ 1490, Connect desde US$ 29/mes. Soluciones para todos los tipos de producción de carreras."
+        title="Planes y Precios de Streamrace - Cloud y Desktop"
+        description="Elegí cómo operar Streamrace: Cloud para productoras que buscan flexibilidad y funciones online, o Desktop para operación local y offline en transmisiones profesionales de automovilismo y karting."
         url="https://streamrace.solutions/precios"
         schemaData={{
           "@context": "https://schema.org",
@@ -122,19 +122,21 @@ export default function Pricing() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-black italic uppercase leading-none">
-              Elegí el plan <span className="text-transparent bg-clip-text bg-linear-to-r from-white to-gray-500">ideal</span>
+              Elegí cómo <span className="text-transparent bg-clip-text bg-linear-to-r from-white to-gray-500">operar</span> Streamrace
             </h1>
 
-            <p className="mt-5 text-white/50 text-lg max-w-2xl">
-              Agendá una demo personalizada de 30 minutos y descubrí cómo Streamrace puede transformar tus transmisiones.
+            <p className="mt-5 text-white/50 text-lg max-w-3xl">
+              Cloud para productoras que buscan flexibilidad, colaboración y funciones online. Desktop para organizaciones que necesitan operar desde infraestructura propia, incluso sin conexión a Internet.
             </p>
           </div>
 
           <section>
-            <div className="mb-8 flex items-center justify-between gap-3">
-              <div className="text-[11px] font-black uppercase tracking-[0.35em] text-white/45">Streamrace Cloud</div>
-              <div className="h-px flex-1 bg-white/10" />
-            </div>
+            {renderSectionHeading(
+              "Streamrace Cloud",
+              "Operación flexible con funciones online",
+              "Ideal para productoras, campeonatos y equipos que quieren centralizar su operación, acceder a funciones online y escalar su transmisión con una implementación más simple.",
+              "Recomendado para productoras"
+            )}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
               {cloudPlans.map((plan) => (
                 <PricingCard key={plan.name} plan={plan} onSelect={handleOpenModal} variant="cloud" />
@@ -143,16 +145,16 @@ export default function Pricing() {
           </section>
 
           {renderCallout(
-            "Offline",
-            "¿Preferís trabajar offline?",
-            "Disponible también en Licencia Perpetua."
+            "Operación local",
+            "¿Necesitás trabajar desde tu propia infraestructura?",
+            "Streamrace Desktop está pensado para organizaciones que priorizan una operación local, estable y sin dependencia de Internet para lo crítico."
           )}
 
           <section className="mt-16">
             {renderSectionHeading(
               "Streamrace Desktop",
               "Licencia Perpetua",
-              "Ideal para organizaciones que desean operar desde su propia infraestructura, incluso sin conexión a Internet.",
+              "Ideal para productoras y organizaciones que necesitan control local, operación offline y una licencia perpetua para trabajar desde su propia infraestructura.",
               "Licencias perpetuas"
             )}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3 items-stretch">
@@ -162,25 +164,6 @@ export default function Pricing() {
             </div>
           </section>
 
-          {renderCallout(
-            "Online",
-            "¿Necesitás funciones online?",
-            "Podés agregar Streamrace Connect en cualquier momento sin perder tu licencia perpetua."
-          )}
-
-          <section className="mt-16">
-            {renderSectionHeading(
-              "Streamrace Connect",
-              "Servicios Cloud para Licencias Perpetuas",
-              "¿Ya tenés Streamrace Desktop? Agregá todas las funciones Cloud sin dejar de utilizar tu instalación local.",
-              "Extensión cloud"
-            )}
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3 items-stretch">
-              {connectPlans.map((plan) => (
-                <PricingCard key={plan.instances} plan={plan} onSelect={handleOpenModal} variant="connect" />
-              ))}
-            </div>
-          </section>
 
           <div className="mt-14 md:mt-18 border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-xs text-white/35 uppercase tracking-widest">
