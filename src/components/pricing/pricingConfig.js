@@ -6,7 +6,7 @@ export const cloudPlans = [
     highlight: false,
     desc: "Ideal para productoras que quieren empezar con Streamrace en un esquema de acceso limitado.",
     features: [
-      "Branding de Streamrace",
+      "Branding propio",
       "Varios diseños de gráficas",
       "Setup guiado",
       "Base de datos",
@@ -26,7 +26,7 @@ export const cloudPlans = [
     highlight: false,
     desc: "Pensado para productoras que necesitan operar con su propia marca y más de una instancia en simultáneo.",
     features: [
-      "Branding de productora",
+      "Branding propio",
       "Powered by Streamrace",
       "Varios diseños de gráficas",
       "Setup guiado",
@@ -46,7 +46,7 @@ export const cloudPlans = [
     highlight: true,
     desc: "Recomendado para productoras que necesitan más capacidad operativa, respuesta prioritaria y una implementación más sólida.",
     features: [
-      "Branding de productora",
+      "Branding propio",
       "Powered by Streamrace",
       "Varios diseños de gráficas",
       "Setup guiado",
