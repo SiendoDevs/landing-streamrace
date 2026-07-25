@@ -664,6 +664,16 @@ export default function LandingPage() {
                  className="h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
                />
                <img
+                 src="/senses.png"
+                 alt="Senses"
+                 className="h-7 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+               />
+               <img
+                 src="/sportapleno.png"
+                 alt="Sport a Pleno"
+                 className="h-14 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+               />
+               <img
                  src="/znpro-logo.svg"
                  alt="ZN PRO"
                  className="h-6 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
@@ -680,6 +690,16 @@ export default function LandingPage() {
                    src="/Logo-APAK.svg"
                    alt="APAK"
                    className="h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity snap-start shrink-0"
+                 />
+                 <img
+                   src="/senses.png"
+                   alt="Senses"
+                   className="h-7 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity snap-start shrink-0"
+                 />
+                 <img
+                   src="/sportapleno.png"
+                   alt="Sport a Pleno"
+                   className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity snap-start shrink-0"
                  />
                  <img
                    src="/znpro-logo.svg"
