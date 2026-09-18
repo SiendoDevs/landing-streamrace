@@ -21,7 +21,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "¿Lo puedo usar en eventos simultáneos?",
-    a: "Sí. Como Founder tenés tu instancia independiente, activa 24/7, y podés solicitar hasta 3 instancias extra por año.",
+    a: "Founder: 1 instancia 24/7 y hasta 3 extras por año. Founder Pro: 2 señales a la vez. Founder Premium: hasta 3. Los tres planes cuentan para los 10 cupos Founder.",
   },
   {
     q: "¿Puedo usar el logo de mi productora o del campeonato?",
@@ -65,7 +65,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "¿Existe una versión de escritorio?",
-    a: "Sí. Para quien necesita operar offline, con licencia perpetua.",
+    a: "Sí. Licencia perpetua, offline. No se vende hasta completar las 10 productoras Founder.",
   },
 ];
 

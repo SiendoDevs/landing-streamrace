@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ContactModal from "./ContactModal";
+import ContactModal from "./LazyContactModal";
 import SEO from "./SEO";
 import Navbar from "./home/Navbar";
 import Hero from "./home/Hero";
@@ -48,7 +48,7 @@ export default function LandingPage() {
     >
       <SEO
         title="Streamrace — Overlays de TV para transmisiones de automovilismo"
-        description="Overlays de TV para transmisiones de automovilismo. Un panel para operadores gráficos y directores. 4 clientes Founder. Cupos limitados."
+        description="Overlays de TV para transmisiones de automovilismo. Programa Founder: 10 productoras, van 4. Cupos limitados."
         url="https://streamrace.solutions/"
         schemaData={{
           "@context": "https://schema.org",
@@ -57,7 +57,7 @@ export default function LandingPage() {
               "@type": "WebApplication",
               name: "Streamrace",
               description:
-                "Overlays de TV para transmisiones de automovilismo. Un panel para operadores gráficos y directores. 4 clientes Founder.",
+                "Overlays de TV para transmisiones de automovilismo. Programa Founder: 10 productoras, van 4.",
               url: "https://streamrace.solutions",
               applicationCategory: "MultimediaApplication",
               operatingSystem: "Windows, macOS, Web",

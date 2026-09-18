@@ -16,7 +16,7 @@ export default function FooterCTA({ onOpenModal }) {
           ¿Listo para subir de nivel?
         </h2>
         <p className="text-xl font-light text-white/60 mb-10">
-          Cuatro productoras Founder ya diferencian su transmisión. Cupos limitados.
+          4 de 10 productoras Founder. Quedan 6 cupos.
         </p>
         <Motion.button
           whileHover={{ scale: 1.05 }}

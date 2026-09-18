@@ -6,6 +6,7 @@ import { formatCurrency } from "./pricingConfig";
 export default function PricingCard({ plan, onSelect, variant = "cloud", unitPrice = null }) {
   const isDesktop = variant === "desktop";
   const isConnect = variant === "connect";
+  const isUnavailable = plan.available === false;
 
   const desktopUnitPrice = isDesktop ? plan.unitPrice ?? unitPrice : null;
   const savings = isDesktop && desktopUnitPrice ? Math.max(0, plan.licenses * desktopUnitPrice - plan.price) : 0;
@@ -16,8 +17,10 @@ export default function PricingCard({ plan, onSelect, variant = "cloud", unitPri
     <div
       className={[
         "relative rounded-2xl p-7 bg-white/5 backdrop-blur-md border transition-all",
-        "shadow-[0_10px_40px_rgba(0,0,0,0.35)] hover:shadow-[0_18px_70px_rgba(0,0,0,0.55)]",
-        plan.highlight ? "border-(--accent)/40" : "border-white/10 hover:border-white/20",
+        isUnavailable
+          ? "opacity-60 shadow-none"
+          : "shadow-[0_10px_40px_rgba(0,0,0,0.35)] hover:shadow-[0_18px_70px_rgba(0,0,0,0.55)]",
+        plan.highlight && !isUnavailable ? "border-(--accent)/40" : "border-white/10 hover:border-white/20",
       ].join(" ")}
     >
       {plan.highlight && (
@@ -92,7 +95,9 @@ export default function PricingCard({ plan, onSelect, variant = "cloud", unitPri
         <FeaturesList features={plan.features} highlight={plan.highlight} />
 
         <CTAButton
+          disabled={isUnavailable}
           onClick={() => {
+            if (isUnavailable) return;
             const productType = variant === "cloud" ? "Cloud" : variant === "desktop" ? "Desktop" : "Connect";
             const planLabel = plan.name || `${plan.licenses || plan.instances || 1} ${isConnect ? "Instancia" : "Licencia"}${(plan.licenses || plan.instances || 1) > 1 ? "s" : ""}`;
             const priceText = plan.price !== null 
@@ -103,7 +108,7 @@ export default function PricingCard({ plan, onSelect, variant = "cloud", unitPri
               `${planLabel} - ${productType} (${priceText})`
             );
           }}
-          highlight={plan.highlight}
+          highlight={plan.highlight && !isUnavailable}
         >
           {plan.cta}
         </CTAButton>

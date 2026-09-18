@@ -3,7 +3,7 @@ import { Users, Tv, Vote, Eye } from "lucide-react";
 import { fadeInUp, staggerContainer } from "./motion";
 
 const STATS = [
-  { icon: Users, value: "4", label: "Clientes Founder" },
+  { icon: Users, value: "4 / 10", label: "Founder" },
   { icon: Tv, value: "50+", label: "Transmisiones" },
   { icon: Vote, value: "10.000+", label: "Votos en una jornada" },
   { icon: Eye, value: "100.000+", label: "Espectadores" },

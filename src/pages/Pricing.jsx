@@ -4,7 +4,7 @@ import { ChevronLeft, MonitorPlay, Timer, Layers, Flag, Swords, QrCode, Radio, M
 import Logo from "../components/Logo";
 import SEO from "../components/SEO";
 import PricingCard from "../components/pricing/PricingCard";
-import ContactModal from "../components/ContactModal";
+import ContactModal from "../components/LazyContactModal";
 import { desktopPlans, visibleCloudPlans, CLOUD_INCLUDES, CLOUD_CONDITIONS } from "../components/pricing/pricingConfig";
 import { TRADEMARK_MARK } from "../lib/trademark";
 
@@ -66,8 +66,8 @@ export default function Pricing() {
       style={{ "--accent": "#D8552B" }}
     >
       <SEO
-        title="Planes y Precios de Streamrace - Cloud y Desktop"
-        description="Elegí cómo operar Streamrace: Cloud para productoras que buscan flexibilidad y funciones online, o Desktop para operación local y offline en transmisiones profesionales de automovilismo y karting."
+        title="Programa Founder — 10 productoras · van 4"
+        description="Streamrace Cloud solo se vende a las primeras 10 productoras Founder. Van 4. Founder, Founder Pro y Founder Premium. Desktop se abre al completar esos 10."
         url="https://streamrace.solutions/precios"
         schemaData={{
           "@context": "https://schema.org",
@@ -107,10 +107,10 @@ export default function Pricing() {
           </Link>
 
           <button
-            onClick={() => handleOpenModal("demo", "")}
+            onClick={() => handleOpenModal("access", "")}
             className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest transition-all"
           >
-            Solicitar Demo
+            Solicitar acceso Founder
           </button>
         </div>
       </nav>
@@ -120,30 +120,30 @@ export default function Pricing() {
           <div className="mb-12 md:mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-white/5 border border-white/10">
               <span className="w-2 h-2 rounded-full bg-(--accent) animate-pulse" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-white/80">Precios</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-white/80">4 / 10 Founder</span>
             </div>
 
             <h1 className="text-4xl md:text-6xl font-black italic uppercase leading-none">
-              Elegí cómo <span className="text-transparent bg-clip-text bg-linear-to-r from-white to-gray-500">operar</span> Streamrace
+              Programa <span className="text-transparent bg-clip-text bg-linear-to-r from-white to-gray-500">Founder</span>
             </h1>
 
             <p className="mt-5 text-white/50 text-lg max-w-3xl">
-              Cloud para productoras que buscan flexibilidad, colaboración y funciones online. Desktop para organizaciones que necesitan operar desde infraestructura propia, incluso sin conexión a Internet.
+              Solo 10 productoras. Van 4. Tres planes Founder, precio cerrado. Desktop es real: se abre cuando se completen esos 10.
             </p>
           </div>
 
           <section>
             {renderSectionHeading(
               "Streamrace Cloud",
-              "Operación flexible con funciones online",
-              "Ideal para productoras que quieren centralizar su operación, acceder a funciones online y escalar su transmisión con una implementación más simple.",
-              "Recomendado para productoras"
+              "Única venta ahora",
+              "Founder, Founder Pro y Founder Premium. Los tres cuentan para los 10 cupos. Co-desarrollo y precio cerrado mientras no te salgas del plan.",
+              "4 de 10 productoras"
             )}
 
             <div className="mb-14 border-y border-white/5 py-10">
               <div className="mb-9 text-center">
                 <div className="text-[10px] font-black uppercase tracking-[0.3em] text-white/45">Todos los planes Cloud incluyen</div>
-                <p className="mt-2 text-sm text-white/40">Lo que sale al aire. En Founder, Pro y Premium.</p>
+                <p className="mt-2 text-sm text-white/40">Lo que sale al aire. En Founder, Founder Pro y Founder Premium.</p>
               </div>
               <div className="grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-5">
                 {CLOUD_INCLUDES.map((item) => {
@@ -202,16 +202,16 @@ export default function Pricing() {
 
           {renderCallout(
             "Operación local",
-            "¿Necesitás trabajar desde tu propia infraestructura?",
-            "Streamrace Desktop está pensado para organizaciones que priorizan una operación local, estable y sin dependencia de Internet para lo crítico."
+            "Desktop existe. No se vende todavía.",
+            "Licencia perpetua, offline. Precio real. La venta se abre al completar las 10 productoras Founder."
           )}
 
-          <section className="mt-16">
+          <section className="mt-16 opacity-80">
             {renderSectionHeading(
               "Streamrace Desktop",
-              "Licencia Perpetua",
-              "Ideal para productoras y organizaciones que necesitan control local, operación offline y una licencia perpetua para trabajar desde su propia infraestructura.",
-              "Licencias perpetuas"
+              "Licencia perpetua. Se abre al completar 10 Founder.",
+              "Operación local, sin depender de Internet para lo crítico. Los precios son los de lista. El contrato, después de los 10 Founder.",
+              "Próximamente"
             )}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3 items-stretch">
               {desktopPlans.map((plan) => (
@@ -219,7 +219,7 @@ export default function Pricing() {
               ))}
             </div>
             <p className="mt-6 text-center text-sm text-white/40">
-              Las funciones online (votación, clima, chat) no están en esta página. Se cotizan aparte si las necesitás sobre Desktop.
+              Desktop no se contrata hasta completar 10 Founder. Las funciones online (votación, clima, chat) se cotizan aparte sobre Desktop.
             </p>
           </section>
 
