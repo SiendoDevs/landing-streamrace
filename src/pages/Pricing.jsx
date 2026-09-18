@@ -128,7 +128,7 @@ export default function Pricing() {
             </h1>
 
             <p className="mt-5 text-white/50 text-lg max-w-3xl">
-              Solo 10 productoras. Van 4. Tres planes Founder, precio cerrado. Desktop es real: se abre cuando se completen esos 10.
+              Solo 10 productoras. Tres planes Founder, precio cerrado. Desktop es real: se abre cuando se completen esos 10.
             </p>
           </div>
 
