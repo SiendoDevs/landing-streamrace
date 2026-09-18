@@ -1,39 +1,94 @@
+export const CLOUD_INCLUDES = [
+  {
+    icon: "monitor",
+    title: "OBS / vMix",
+    text: "Gráficos 1920×1080 en el motor de navegador.",
+  },
+  {
+    icon: "timer",
+    title: "Cronometraje",
+    text: "Speedhive, Race Monitor o TCP/IP MYLAPS Orbits.",
+  },
+  {
+    icon: "layers",
+    title: "Temas",
+    text: "Original y Carbon Pro en toda la señal.",
+  },
+  {
+    icon: "flag",
+    title: "Control de carrera",
+    text: "Torre, banderas, semáforo y SC/AS.",
+  },
+  {
+    icon: "swords",
+    title: "Piloto",
+    text: "Peleas por puesto y placa al aire.",
+  },
+  {
+    icon: "qr",
+    title: "Votación",
+    text: "QR, Piloto del Día y overlay de pausa.",
+  },
+  {
+    icon: "broadcast",
+    title: "Transmisión",
+    text: "Fecha, campeonato y productora.",
+  },
+  {
+    icon: "map",
+    title: "Producción",
+    text: "Circuitos, publicidad, clima y base de pilotos.",
+  },
+  {
+    icon: "youtube",
+    title: "YouTube",
+    text: "Chat en vivo sobre la señal.",
+  },
+  {
+    icon: "palette",
+    title: "Marca",
+    text: "Color primario y logos de productora o categoría.",
+  },
+];
+
+export const CLOUD_CONDITIONS = [
+  "Suscripción mensual o anual.",
+  "El precio Founder se mantiene solo si no cancelás ni cambiás de plan. Si salís, perdés ese precio.",
+  "Founder: instancia propia activa 24/7 y hasta 3 instancias extra por año.",
+  "La cuenta es de una productora. Compartirla con otra es causal de baja permanente de Streamrace.",
+];
+
 export const cloudPlans = [
   {
     name: "Founder",
     price: 49,
     annualPrice: 439,
-    highlight: false,
-    desc: "Ideal para productoras que quieren empezar con Streamrace en un esquema de acceso limitado.",
+    highlight: true,
+    highlightLabel: "Acceso inicial",
+    desc: "Una instancia propia 24/7, precio cerrado y cupos limitados. Para productoras que entran ahora.",
     features: [
+      "1 instancia activa 24/7",
+      "Hasta 3 instancias extra por año",
+      "Precio fijo mientras no te salgas del plan",
       "Branding propio",
-      "Varios diseños de gráficas",
-      "Setup guiado",
-      "Base de datos",
-      "Funciones online",
       "Soporte con el desarrollador",
       "Cupos limitados",
-      "Hasta 3 eventos por año",
     ],
     cta: "Elegir plan",
     type: "demo",
-    badge: "",
+    badge: "4/10 productoras · cupos limitados",
   },
   {
     name: "Pro",
     price: 79,
     annualPrice: 699,
     highlight: false,
-    desc: "Pensado para productoras que necesitan operar con su propia marca y más de una instancia en simultáneo.",
+    desc: "Para productoras que cubren más de una señal al mismo tiempo.",
     features: [
+      "2 instancias simultáneas",
       "Branding propio",
       "Powered by Streamrace",
-      "Varios diseños de gráficas",
-      "Setup guiado",
-      "Base de datos",
-      "Funciones online",
       "Soporte estándar",
-      "2 instancias simultáneas",
     ],
     cta: "Elegir plan",
     type: "demo",
@@ -42,31 +97,29 @@ export const cloudPlans = [
   {
     name: "Premium",
     price: 129,
-    annualPrice: 1199,
-    highlight: true,
-    desc: "Recomendado para productoras que necesitan más capacidad operativa, respuesta prioritaria y una implementación más sólida.",
+    annualPrice: 1161,
+    highlight: false,
+    desc: "Más capacidad simultánea y respuesta prioritaria cuando la jornada se complica.",
     features: [
+      "Hasta 3 instancias simultáneas",
       "Branding propio",
       "Powered by Streamrace",
-      "Varios diseños de gráficas",
-      "Setup guiado",
-      "Base de datos",
-      "Funciones online",
       "Soporte prioritario",
-      "Hasta 3 instancias simultáneas",
     ],
     cta: "Elegir plan",
     type: "demo",
-    badge: "",
+    badge: "Recomendado para escalar",
   },
   {
     name: "Studio",
     price: null,
     highlight: false,
+    visible: false,
     desc: "Para organizaciones que necesitan marca blanca, personalización a medida y una propuesta comercial más avanzada.",
     features: [
       "Personalización del diseño a medida",
       "Todas las funciones de Streamrace",
+      "Votación por QR / Piloto del Día",
       "Base de datos",
       "Funciones online",
       "Múltiples instancias simultáneas",
@@ -77,6 +130,8 @@ export const cloudPlans = [
     badge: "",
   },
 ];
+
+export const visibleCloudPlans = cloudPlans.filter((plan) => plan.visible !== false);
 
 export const desktopPlans = [
   {

@@ -1,4 +1,4 @@
-# Guía de Indexación SEO para Streamrace®
+# Guía de Indexación SEO para Streamrace
 
 ## ✅ Implementado en el Código
 

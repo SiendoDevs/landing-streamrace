@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Shield, Lock, Eye, FileText, ChevronLeft } from "lucide-react";
 import Logo from "../components/Logo";
+import { TRADEMARK_MARK } from "../lib/trademark";
 
 export default function PrivacyPolicy() {
   const fadeInUp = {
@@ -49,7 +50,7 @@ export default function PrivacyPolicy() {
           {/* Introducción */}
           <Section title="1. Introducción" icon={<FileText />}>
             <p>
-              Bienvenido a <strong>Streamrace Solutions®</strong> ("nosotros", "nuestro", "la Plataforma"). Nos tomamos muy en serio la privacidad y seguridad de sus datos. 
+              Bienvenido a <strong>{TRADEMARK_MARK} Solutions</strong> ("nosotros", "nuestro", "la Plataforma"). Nos tomamos muy en serio la privacidad y seguridad de sus datos. 
               Esta Política de Privacidad describe de manera transparente cómo recopilamos, utilizamos, procesamos y protegemos su información personal y los datos de sus eventos deportivos cuando utiliza nuestro software de gestión y gráficos para transmisiones (el "Servicio").
             </p>
             <p className="mt-4">
@@ -128,7 +129,7 @@ export default function PrivacyPolicy() {
         </motion.div>
 
         <footer className="mt-20 pt-10 border-t border-white/5 text-center text-xs text-white/30 uppercase tracking-widest">
-          &copy; {new Date().getFullYear()} Streamrace Solutions®. Todos los derechos reservados.
+          &copy; {new Date().getFullYear()} {TRADEMARK_MARK} Solutions. Todos los derechos reservados.
         </footer>
       </div>
     </div>

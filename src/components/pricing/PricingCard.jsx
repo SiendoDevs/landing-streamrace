@@ -31,7 +31,7 @@ export default function PricingCard({ plan, onSelect, variant = "cloud", unitPri
               <div className="text-xs font-bold uppercase tracking-widest text-white/55">
                 {plan.name || `${plan.licenses || plan.instances || 1} ${isConnect ? "Instancia" : "Licencia"}${(plan.licenses || plan.instances || 1) > 1 ? (isConnect ? "s" : "s") : ""}`}
               </div>
-              {plan.highlight && <Badge accent>Recomendado</Badge>}
+              {plan.highlight && <Badge accent>{plan.highlightLabel || "Recomendado"}</Badge>}
             </div>
 
             {plan.badge && (

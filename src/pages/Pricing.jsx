@@ -1,11 +1,25 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, MonitorPlay, Timer, Layers, Flag, Swords, QrCode, Radio, Map, Youtube, Palette } from "lucide-react";
 import Logo from "../components/Logo";
 import SEO from "../components/SEO";
 import PricingCard from "../components/pricing/PricingCard";
 import ContactModal from "../components/ContactModal";
-import { cloudPlans, desktopPlans } from "../components/pricing/pricingConfig";
+import { desktopPlans, visibleCloudPlans, CLOUD_INCLUDES, CLOUD_CONDITIONS } from "../components/pricing/pricingConfig";
+import { TRADEMARK_MARK } from "../lib/trademark";
+
+const INCLUDE_ICONS = {
+  monitor: MonitorPlay,
+  timer: Timer,
+  layers: Layers,
+  flag: Flag,
+  swords: Swords,
+  qr: QrCode,
+  broadcast: Radio,
+  map: Map,
+  youtube: Youtube,
+  palette: Palette,
+};
 
 export default function Pricing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -65,26 +79,14 @@ export default function Pricing() {
             "@id": "#cloud-plans",
             "name": "Streamrace Cloud",
             "description": "Sistema cloud para streaming de carreras",
-            "offers": [
-              {
+            "offers": visibleCloudPlans
+              .filter((plan) => plan.price !== null)
+              .map((plan) => ({
                 "@type": "Offer",
-                "name": "Founder",
+                "name": plan.name,
                 "priceCurrency": "USD",
-                "price": "49"
-              },
-              {
-                "@type": "Offer",
-                "name": "Pro",
-                "priceCurrency": "USD",
-                "price": "79"
-              },
-              {
-                "@type": "Offer",
-                "name": "Premium",
-                "priceCurrency": "USD",
-                "price": "129"
-              }
-            ]
+                "price": String(plan.price)
+              }))
           }
         }}
       />
@@ -134,14 +136,68 @@ export default function Pricing() {
             {renderSectionHeading(
               "Streamrace Cloud",
               "Operación flexible con funciones online",
-              "Ideal para productoras, campeonatos y equipos que quieren centralizar su operación, acceder a funciones online y escalar su transmisión con una implementación más simple.",
+              "Ideal para productoras que quieren centralizar su operación, acceder a funciones online y escalar su transmisión con una implementación más simple.",
               "Recomendado para productoras"
             )}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-              {cloudPlans.map((plan) => (
+
+            <div className="mb-14 border-y border-white/5 py-10">
+              <div className="mb-9 text-center">
+                <div className="text-[10px] font-black uppercase tracking-[0.3em] text-white/45">Todos los planes Cloud incluyen</div>
+                <p className="mt-2 text-sm text-white/40">Lo que sale al aire. En Founder, Pro y Premium.</p>
+              </div>
+              <div className="grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-5">
+                {CLOUD_INCLUDES.map((item) => {
+                  const Icon = INCLUDE_ICONS[item.icon];
+                  return (
+                    <div key={item.title} className="group flex gap-3">
+                      {Icon && <Icon className="mt-0.5 h-4 w-4 shrink-0 text-(--accent)" />}
+                      <div>
+                        <div className="text-xs font-black uppercase tracking-widest text-white/85 transition-colors group-hover:text-white">
+                          {item.title}
+                        </div>
+                        <p className="mt-1.5 text-xs leading-relaxed text-white/45">{item.text}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+              {visibleCloudPlans.map((plan) => (
                 <PricingCard key={plan.name} plan={plan} onSelect={handleOpenModal} variant="cloud" />
               ))}
             </div>
+
+            <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
+              <div className="text-[10px] font-black uppercase tracking-[0.3em] text-white/45">Condiciones</div>
+              <ul className="mt-4 space-y-3">
+                {CLOUD_CONDITIONS.map((item) => (
+                  <li key={item} className="text-sm leading-relaxed text-white/50">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 text-xs text-white/35">
+                Detalle en los{" "}
+                <Link to="/terms-of-service" className="text-white/55 hover:text-white underline underline-offset-4">
+                  Términos de Uso
+                </Link>
+                .
+              </p>
+            </div>
+
+            <p className="mt-6 text-center text-sm text-white/40">
+              ¿Necesitás marca blanca?{" "}
+              <button
+                type="button"
+                onClick={() => handleOpenModal("demo", "Studio - Cloud (Consultar)")}
+                className="text-white/70 hover:text-white underline underline-offset-4 cursor-pointer"
+              >
+                Escribinos
+              </button>
+              .
+            </p>
           </section>
 
           {renderCallout(
@@ -162,12 +218,15 @@ export default function Pricing() {
                 <PricingCard key={plan.licenses} plan={plan} onSelect={handleOpenModal} variant="desktop" unitPrice={desktopUnitPrice} />
               ))}
             </div>
+            <p className="mt-6 text-center text-sm text-white/40">
+              Las funciones online (votación, clima, chat) no están en esta página. Se cotizan aparte si las necesitás sobre Desktop.
+            </p>
           </section>
 
 
           <div className="mt-14 md:mt-18 border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-xs text-white/35 uppercase tracking-widest">
-              &copy; {new Date().getFullYear()} Streamrace Solutions®
+              &copy; {new Date().getFullYear()} {TRADEMARK_MARK} Solutions
             </div>
             <div className="flex items-center gap-4">
               <Link to="/privacy-policy" className="text-xs font-mono text-white/30 hover:text-white transition-colors cursor-pointer uppercase tracking-widest">

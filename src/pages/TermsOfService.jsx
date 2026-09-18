@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Scale, FileSignature, AlertTriangle, Copyright, Gavel, ChevronLeft, Ban } from "lucide-react";
+import { Scale, FileSignature, AlertTriangle, Copyright, Gavel, ChevronLeft, Ban, Radio } from "lucide-react";
 import Logo from "../components/Logo";
+import { TRADEMARK_MARK, TRADEMARK_NOTICE } from "../lib/trademark";
 
 export default function TermsOfService() {
   const fadeInUp = {
@@ -69,9 +70,17 @@ export default function TermsOfService() {
           {/* Propiedad Intelectual */}
           <Section title="3. Propiedad Intelectual" icon={<Copyright />}>
             <p>
-              El Servicio, incluyendo su diseño, código, gráficos (overlays), logotipos y funcionalidades, es propiedad exclusiva de Streamrace Solutions. 
+              El Servicio, incluyendo su diseño, código, gráficos (overlays), logotipos y funcionalidades, es propiedad exclusiva de {TRADEMARK_MARK} Solutions. 
               El uso del Servicio no te otorga derechos de propiedad sobre el mismo, salvo el derecho de uso limitado descrito anteriormente.
             </p>
+
+            <p className="uppercase text-xs font-bold tracking-widest text-white/40 mt-6 mb-2">Marcas</p>
+            <p>{TRADEMARK_NOTICE}</p>
+            <ul className="list-disc pl-6 space-y-2 mt-4 marker:text-(--accent)">
+              <li>Podés mencionar que tu producción opera con Streamrace, indicando siempre que la marca pertenece a su titular.</li>
+              <li>No podés usar la marca ni el logotipo como identificación propia, ni incorporarlos a tu propia marca, nombre comercial o dominio.</li>
+              <li>No podés registrar ni solicitar signos idénticos o confundibles con Streamrace, en ninguna clase ni jurisdicción.</li>
+            </ul>
           </Section>
 
           {/* Cancelación y Suspensión */}
@@ -83,11 +92,23 @@ export default function TermsOfService() {
               <li>Violación de estos Términos y Condiciones.</li>
               <li>Uso fraudulento o abusivo del sistema.</li>
               <li>Falta de pago de las tarifas de suscripción (si aplica).</li>
+              <li>Compartir una cuenta de Streamrace Broadcast con otra productora u organización.</li>
+            </ul>
+          </Section>
+
+          <Section title="5. Streamrace Broadcast" icon={<Radio />}>
+            <p>
+              Streamrace Broadcast se ofrece por suscripción mensual o anual. El alcance de cada plan (instancias, soporte y condiciones comerciales) es el publicado en la página de precios al momento de contratar.
+            </p>
+            <ul className="list-disc pl-6 space-y-2 mt-4 marker:text-(--accent)">
+              <li>El precio Founder se mantiene únicamente mientras no cancelás ni cambiás de plan. Si salís del plan Founder, perdés ese precio.</li>
+              <li>El plan Founder incluye una instancia propia activa 24/7 y hasta 3 eventos extra por año.</li>
+              <li>Cada cuenta pertenece a una sola productora. No se puede compartir con otras productoras. El incumplimiento es causal de baja permanente de Streamrace.</li>
             </ul>
           </Section>
 
           {/* Renuncia de Garantías */}
-          <Section title="5. Renuncia de Garantías" icon={<AlertTriangle />}>
+          <Section title="6. Renuncia de Garantías" icon={<AlertTriangle />}>
             <p className="uppercase text-xs font-bold tracking-widest text-white/40 mb-2">Aviso Importante</p>
             <p>
               El Servicio se proporciona "tal cual". No garantizamos que el Servicio sea ininterrumpido, seguro o libre de errores. 
@@ -96,7 +117,7 @@ export default function TermsOfService() {
           </Section>
 
           {/* Ley Aplicable */}
-          <Section title="6. Ley Aplicable" icon={<Gavel />}>
+          <Section title="7. Ley Aplicable" icon={<Gavel />}>
             <p>
               Estos Términos se regirán e interpretarán de acuerdo con las leyes vigentes en el país de residencia del propietario de Streamrace Solutions, sin tener en cuenta sus disposiciones sobre conflictos de leyes.
             </p>
@@ -105,7 +126,7 @@ export default function TermsOfService() {
         </motion.div>
 
         <footer className="mt-20 pt-10 border-t border-white/5 text-center text-xs text-white/30 uppercase tracking-widest">
-          &copy; {new Date().getFullYear()} Streamrace Solutions®. Todos los derechos reservados.
+          &copy; {new Date().getFullYear()} {TRADEMARK_MARK} Solutions. Todos los derechos reservados.
         </footer>
       </div>
     </div>
