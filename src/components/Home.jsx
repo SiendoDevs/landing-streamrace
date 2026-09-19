@@ -20,9 +20,11 @@ export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("demo");
+  const [selectedPlan, setSelectedPlan] = useState("");
 
-  const handleOpenModal = (type) => {
+  const handleOpenModal = (type, plan = "") => {
     setModalType(type);
+    setSelectedPlan(plan);
     setIsModalOpen(true);
     setIsMenuOpen(false);
   };
@@ -83,7 +85,7 @@ export default function LandingPage() {
         }}
       />
 
-      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} initialType={modalType} />
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} initialType={modalType} initialPlan={selectedPlan} />
 
       <Navbar
         isMenuOpen={isMenuOpen}

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle, AlertCircle, X, ChevronDown, Send } from "lucide-react";
+import { CheckCircle, AlertCircle, X, ChevronDown, Send, Info } from "lucide-react";
 import * as RPNInput from "react-phone-number-input";
 import InputPhone from "react-phone-number-input/input";
 import flags from "react-phone-number-input/flags";
 import { getCountries } from "react-phone-number-input";
+import { formatCurrency, founderPlanChoices } from "./pricing/pricingConfig";
 
 // Lista de países simplificada para el selector (se puede expandir o usar una librería externa completa)
 const COUNTRIES = [
@@ -65,6 +66,7 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo", in
   const [showPhoneCountrySelect, setShowPhoneCountrySelect] = useState(false);
   const [showCountrySelect, setShowCountrySelect] = useState(false);
   const [showClientTypeSelect, setShowClientTypeSelect] = useState(false);
+  const [showPlanSelect, setShowPlanSelect] = useState(false);
 
   const countriesList = React.useMemo(() => {
     try {
@@ -81,6 +83,7 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo", in
   React.useEffect(() => {
     if (isOpen) {
       setFormState(prev => ({ ...prev, type: initialType, plan: initialPlan }));
+      setShowPlanSelect(false);
     }
   }, [isOpen, initialType, initialPlan]);
 
@@ -90,7 +93,7 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo", in
     setError(null);
 
     // Validación básica
-    if (!formState.name || !formState.email || !formState.phone || !formState.country) {
+    if (!formState.name || !formState.email || !formState.phone || !formState.country || (formState.type === "access" && !formState.plan)) {
       setError("Por favor completa todos los campos requeridos.");
       setIsSubmitting(false);
       return;
@@ -147,6 +150,11 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo", in
       setIsSubmitting(false);
     }
   };
+
+  const selectedFounderPlan = founderPlanChoices.find((plan) => plan.value === formState.plan);
+  const founderPlanLabel = selectedFounderPlan && selectedFounderPlan.price !== null
+    ? `${selectedFounderPlan.name} · ${formatCurrency(selectedFounderPlan.price)}/mes`
+    : (formState.plan || "Selecciona un plan Founder");
 
   return (
     <AnimatePresence>
@@ -223,13 +231,62 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo", in
                             onChange={(e) => setFormState({...formState, name: e.target.value})}
                         />
 
-                        <CustomInput 
-                            id="plan" 
-                            label="Plan" 
-                            placeholder="Sin plan seleccionado"
-                            value={formState.plan}
-                            readOnly
-                        />
+                        <div className="grid gap-2">
+                            {formState.type === "access" ? (
+                                <div className="grid gap-2 relative">
+                                    <label htmlFor="plan" className="text-white/70 text-sm font-medium leading-none">Plan</label>
+                                    <button
+                                        id="plan"
+                                        type="button"
+                                        onClick={() => setShowPlanSelect(!showPlanSelect)}
+                                        className="flex h-10 w-full items-center justify-between rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm text-white focus:outline-none focus:border-[#D8552B]"
+                                    >
+                                        <span className={formState.plan ? "text-white" : "text-white/50"}>
+                                            {founderPlanLabel}
+                                        </span>
+                                        <ChevronDown className="h-4 w-4 opacity-50" />
+                                    </button>
+                                    {showPlanSelect && (
+                                        <>
+                                            <div className="absolute top-full left-0 mt-1 w-full overflow-hidden bg-[#1A1A1A] border border-white/10 rounded-md shadow-lg z-50">
+                                                {founderPlanChoices.map((plan) => (
+                                                    <div
+                                                        key={plan.value}
+                                                        onClick={() => {
+                                                            setFormState({...formState, plan: plan.value});
+                                                            setShowPlanSelect(false);
+                                                        }}
+                                                        className="flex items-center justify-between gap-3 px-3 py-2.5 hover:bg-white/10 cursor-pointer text-white text-sm"
+                                                    >
+                                                        <span className={plan.highlight ? "font-semibold" : ""}>{plan.name}</span>
+                                                        {plan.price !== null && (
+                                                            <span className="shrink-0 text-xs text-white/50">{formatCurrency(plan.price)}/mes</span>
+                                                        )}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                            <div className="fixed inset-0 z-40" onClick={() => setShowPlanSelect(false)} />
+                                        </>
+                                    )}
+                                </div>
+                            ) : (
+                                <CustomInput 
+                                    id="plan" 
+                                    label="Plan" 
+                                    placeholder="Sin plan seleccionado"
+                                    value={formState.plan}
+                                    readOnly
+                                />
+                            )}
+                            {formState.plan === "Demo" && (
+                                <div className="flex items-start gap-3 rounded-md border border-[#D8552B]/30 bg-[#D8552B]/10 px-3 py-3 text-sm leading-relaxed text-white/80">
+                                    <Info className="mt-0.5 h-4 w-4 shrink-0 text-[#D8552B]" />
+                                    <p>
+                                        La demo es una videollamada de unos 30 minutos. Recorreremos las principales características de la app y te otorgaremos una cuenta demo para probar el sistema.
+                                    </p>
+                                </div>
+                            )}
+                        </div>
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <CustomInput 

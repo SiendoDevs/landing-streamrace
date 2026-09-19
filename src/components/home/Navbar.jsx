@@ -38,7 +38,7 @@ export default function Navbar({ isMenuOpen, setIsMenuOpen, scrollToSection, onO
           Precios
         </Link>
         <button
-          onClick={() => onOpenModal("demo")}
+          onClick={() => onOpenModal("demo", "Demo")}
           className="text-xs font-bold uppercase tracking-widest text-(--accent) hover:text-white transition-colors cursor-pointer"
         >
           Solicitar Demo
@@ -108,7 +108,7 @@ export default function Navbar({ isMenuOpen, setIsMenuOpen, scrollToSection, onO
               <div className="h-px bg-white/5 my-2 mx-4" />
 
               <button
-                onClick={() => onOpenModal("demo")}
+                onClick={() => onOpenModal("demo", "Demo")}
                 className="flex items-center gap-4 p-4 w-full text-left rounded-xl hover:bg-white/5 transition-all group"
               >
                 <Play className="w-5 h-5 text-(--accent)" />

@@ -244,3 +244,15 @@ export const connectPlans = [
 
 export const formatCurrency = (value) =>
   `US$ ${value.toLocaleString("de-DE", { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
+
+export const formatCloudPlanChoice = (plan) => {
+  const priceText = plan.price !== null ? `${formatCurrency(plan.price)}/mes` : "Consultar";
+  return `${plan.name} - Cloud (${priceText})`;
+};
+
+export const founderPlanChoices = visibleCloudPlans.map((plan) => ({
+  name: plan.name,
+  value: formatCloudPlanChoice(plan),
+  price: plan.price,
+  highlight: plan.highlight,
+}));

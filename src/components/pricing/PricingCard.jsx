@@ -1,7 +1,7 @@
 import Badge from "./Badge";
 import FeaturesList from "./FeaturesList";
 import CTAButton from "./CTAButton";
-import { formatCurrency } from "./pricingConfig";
+import { formatCloudPlanChoice, formatCurrency } from "./pricingConfig";
 
 export default function PricingCard({ plan, onSelect, variant = "cloud", unitPrice = null }) {
   const isDesktop = variant === "desktop";
@@ -105,7 +105,7 @@ export default function PricingCard({ plan, onSelect, variant = "cloud", unitPri
               : "Consultar";
             onSelect(
               plan.type,
-              `${planLabel} - ${productType} (${priceText})`
+              variant === "cloud" ? formatCloudPlanChoice(plan) : `${planLabel} - ${productType} (${priceText})`
             );
           }}
           highlight={plan.highlight && !isUnavailable}
