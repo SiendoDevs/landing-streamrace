@@ -103,7 +103,7 @@ export default function TermsOfService() {
             <ul className="list-disc pl-6 space-y-2 mt-4 marker:text-(--accent)">
               <li>El programa Founder tiene 10 cuentas. Incluye los planes Founder, Founder Pro y Founder Premium. Cada uno cuenta para ese cupo.</li>
               <li>El precio Founder se mantiene únicamente mientras no cancelás ni cambiás de plan. Si salís del plan Founder, perdés ese precio.</li>
-              <li>Founder incluye una instancia propia activa 24/7 y hasta 3 eventos extra por año. Founder Pro y Founder Premium aumentan instancias simultáneas según la página de precios.</li>
+              <li>Founder incluye una instancia propia activa 24/7. Founder Pro y Founder Premium aumentan instancias simultáneas según la página de precios.</li>
               <li>Cada cuenta pertenece a una sola productora. No se puede compartir con otras productoras. El incumplimiento es causal de baja permanente de Streamrace.</li>
               <li>Streamrace Desktop no se ofrece hasta completar las 10 cuentas del programa Founder.</li>
             </ul>

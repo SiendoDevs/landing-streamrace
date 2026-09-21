@@ -108,7 +108,7 @@ export default function Pricing() {
 
           <button
             onClick={() => handleOpenModal("access", "")}
-            className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest transition-all"
+            className="px-2.5 py-1.5 md:px-4 md:py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-[9px] md:text-xs font-bold uppercase tracking-wider md:tracking-widest transition-all max-w-[9.5rem] md:max-w-none leading-tight"
           >
             Solicitar acceso Founder
           </button>

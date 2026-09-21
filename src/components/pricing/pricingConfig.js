@@ -52,12 +52,12 @@ export const CLOUD_INCLUDES = [
 ];
 
 export const CLOUD_CONDITIONS = [
-  "10 cupos Founder. Van 4. Founder, Founder Pro y Founder Premium cuentan para ese cupo.",
+  "10 cupos Founder. Founder, Founder Pro y Founder Premium cuentan para ese cupo.",
   "Suscripción mensual o anual.",
   "El precio Founder se mantiene solo si no cancelás ni cambiás de plan. Si salís, perdés ese precio.",
-  "Founder: 1 instancia 24/7 y hasta 3 instancias extra por año. Founder Pro: 2 simultáneas. Founder Premium: hasta 3.",
+  "Founder: 1 instancia 24/7. Founder Pro: 2 simultáneas. Founder Premium: hasta 3.",
   "La cuenta es de una productora. Compartirla con otra es causal de baja permanente de Streamrace.",
-  "Desktop no se contrata hasta completar los 10 Founder.",
+  "Desktop no se puede contratar hasta completar los 10 Founder.",
 ];
 
 export const cloudPlans = [
@@ -67,7 +67,7 @@ export const cloudPlans = [
     annualPrice: 439,
     highlight: true,
     highlightLabel: "Acceso inicial",
-    desc: "Una instancia. Precio de entrada al programa Founder. 10 productoras. Van 4.",
+    desc: "Una instancia. Precio de entrada al programa Founder. 10 productoras.",
     features: [
       "1 instancia activa 24/7",
       "Hasta 3 instancias extra por año",
