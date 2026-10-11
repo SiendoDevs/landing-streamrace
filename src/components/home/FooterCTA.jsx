@@ -16,7 +16,7 @@ export default function FooterCTA({ onOpenModal }) {
           ¿Listo para subir de nivel?
         </h2>
         <p className="text-xl font-light text-white/60 mb-10">
-          4 de 10 productoras Founder. Quedan 6 cupos.
+          El programa Founder cierra en 1 mes.
         </p>
         <Motion.button
           whileHover={{ scale: 1.05 }}

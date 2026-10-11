@@ -16,9 +16,9 @@ export function FeatureItem({ text }) {
 
 export function BentoCard({ image, title, desc, badge, accent = "orange" }) {
   const badgeColors = {
-    orange: "bg-orange-500/10 text-orange-500 border-orange-500/20",
-    green: "bg-green-500/10 text-green-500 border-green-500/20",
-    blue: "bg-blue-500/10 text-blue-500 border-blue-500/20",
+    orange: "text-orange-400 border-orange-500/30",
+    green: "text-green-400 border-green-500/30",
+    blue: "text-blue-400 border-blue-500/30",
   };
 
   const variants = {
@@ -35,7 +35,7 @@ export function BentoCard({ image, title, desc, badge, accent = "orange" }) {
       <div className="h-48 overflow-hidden relative">
         <div className="absolute inset-0 bg-linear-to-t from-[#111] to-transparent z-10 opacity-30" />
         <img src={image} alt={title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-        <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border backdrop-blur-md z-20 ${badgeColors[accent] || badgeColors.orange}`}>
+        <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border bg-black/75 z-20 ${badgeColors[accent] || badgeColors.orange}`}>
           {badge}
         </div>
       </div>

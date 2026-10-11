@@ -61,9 +61,9 @@ export default function ControlSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative"
+          className="relative isolate"
         >
-          <div className="absolute -inset-1 rounded-2xl bg-(--accent) blur-xl opacity-10 pointer-events-none" />
+          <div className="absolute -inset-1 rounded-2xl bg-(--accent) blur-xl opacity-10 pointer-events-none transform-gpu" />
           <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl leading-none">
             <img src="/landing/dashboard.png" alt="Panel de control Streamrace" className="w-full h-auto block" />
           </div>

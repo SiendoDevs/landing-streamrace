@@ -50,7 +50,7 @@ export default function LandingPage() {
     >
       <SEO
         title="Streamrace — Overlays de TV para transmisiones de automovilismo"
-        description="Overlays de TV para transmisiones de automovilismo. Programa Founder: 10 productoras, van 4. Cupos limitados."
+        description="Overlays de TV para transmisiones de automovilismo. Programa Founder: cierra en 1 mes."
         url="https://streamrace.solutions/"
         schemaData={{
           "@context": "https://schema.org",
@@ -59,7 +59,7 @@ export default function LandingPage() {
               "@type": "WebApplication",
               name: "Streamrace",
               description:
-                "Overlays de TV para transmisiones de automovilismo. Programa Founder: 10 productoras, van 4.",
+                "Overlays de TV para transmisiones de automovilismo. Programa Founder: cierra en 1 mes.",
               url: "https://streamrace.solutions",
               applicationCategory: "MultimediaApplication",
               operatingSystem: "Windows, macOS, Web",
@@ -67,7 +67,7 @@ export default function LandingPage() {
                 "@type": "AggregateOffer",
                 priceCurrency: "USD",
                 lowPrice: "49",
-                highPrice: "129",
+                highPrice: "1390",
               },
             },
             {

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle, AlertCircle, X, ChevronDown, Send, Info } from "lucide-react";
 import * as RPNInput from "react-phone-number-input";
@@ -115,7 +116,13 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo", in
           pais: formState.country,
           tipo_organizacion: formState.clientType,
           plan_elegido: formState.plan || "Sin especificar",
-          tipo_solicitud: formState.type === 'demo' ? 'Solicitud de Demo' : 'Solicitud de Acceso',
+          tipo_solicitud: formState.type === "demo"
+            ? "Solicitud de Demo"
+            : formState.type === "desktop"
+              ? "Solicitud Desktop"
+              : formState.type === "connect"
+                ? "Solicitud Connect"
+                : "Solicitud de Acceso",
           mensaje: formState.message || "Sin mensaje adicional",
           _subject: `Nuevo Lead Streamrace: ${formState.name}`,
           _template: "table", // Formato tabla ordenado
@@ -151,22 +158,33 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo", in
     }
   };
 
+  React.useEffect(() => {
+    if (!isOpen) return undefined;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isOpen]);
+
   const selectedFounderPlan = founderPlanChoices.find((plan) => plan.value === formState.plan);
   const founderPlanLabel = selectedFounderPlan && selectedFounderPlan.price !== null
     ? `${selectedFounderPlan.name} · ${formatCurrency(selectedFounderPlan.price)}/mes`
     : (formState.plan || "Selecciona un plan Founder");
 
-  return (
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-            {/* Overlay */}
-            <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+        <motion.div
+          className="fixed inset-0 z-[80] flex items-center justify-center"
+          initial={false}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 1 }}
+          transition={{ duration: 0.2 }}
+        >
+            <div
                 onClick={onClose}
-                className="fixed inset-0 bg-black/80 backdrop-blur-sm"
+                className="absolute inset-0 bg-black/80 backdrop-blur-sm"
             />
             
             {/* Modal Content */}
@@ -176,7 +194,7 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo", in
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 transition={{ duration: 0.2 }}
                 aria-describedby="contact-modal-description"
-                className="relative w-full max-w-[700px] mx-4 bg-[#0A0A0A] border border-white/10 rounded-lg shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+                className="relative z-10 w-full max-w-[700px] mx-4 bg-[#0A0A0A] border border-white/10 rounded-lg shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
             >
                 {/* Header */}
                 <div className="flex flex-col space-y-1.5 p-6 border-b border-white/10 bg-[#0A0A0A]">
@@ -461,8 +479,9 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo", in
                     )}
                 </div>
             </motion.div>
-        </div>
+        </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }

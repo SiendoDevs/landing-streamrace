@@ -4,8 +4,9 @@ import { ChevronLeft, MonitorPlay, Timer, Layers, Flag, Swords, QrCode, Radio, M
 import Logo from "../components/Logo";
 import SEO from "../components/SEO";
 import PricingCard from "../components/pricing/PricingCard";
+import OsMarks from "../components/pricing/OsMarks";
 import ContactModal from "../components/LazyContactModal";
-import { desktopPlans, visibleCloudPlans, CLOUD_INCLUDES, CLOUD_CONDITIONS } from "../components/pricing/pricingConfig";
+import { connectPlans, desktopPlans, visibleCloudPlans, CLOUD_INCLUDES, CLOUD_CONDITIONS, FOUNDER_CLOSE_LABEL, SECOND_SEAT_NOTE } from "../components/pricing/pricingConfig";
 import { TRADEMARK_MARK } from "../lib/trademark";
 
 const INCLUDE_ICONS = {
@@ -32,8 +33,6 @@ export default function Pricing() {
     setIsModalOpen(true);
   };
 
-  const desktopUnitPrice = desktopPlans[0]?.unitPrice || 0;
-
   const renderSectionHeading = (title, subtitle, description, badge = null) => (
     <div className="mx-auto mb-10 max-w-3xl text-center">
       {badge && (
@@ -48,26 +47,14 @@ export default function Pricing() {
     </div>
   );
 
-  const renderCallout = (eyebrow, title, description) => (
-    <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_10px_40px_rgba(0,0,0,0.35)] md:p-8">
-      <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-        <div className="max-w-2xl">
-          <div className="text-[10px] font-black uppercase tracking-[0.3em] text-white/45">{eyebrow}</div>
-          <h3 className="mt-2 text-xl font-black italic uppercase tracking-tight text-white">{title}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-white/50">{description}</p>
-        </div>
-      </div>
-    </div>
-  );
-
   return (
     <div
       className="min-h-screen bg-[#050505] text-white flex flex-col font-sans selection:bg-(--accent) selection:text-black overflow-x-hidden"
       style={{ "--accent": "#D8552B" }}
     >
       <SEO
-        title="Programa Founder — 10 productoras · van 4"
-        description="Streamrace Cloud solo se vende a las primeras 10 productoras Founder. Van 4. Founder, Founder Pro y Founder Premium. Desktop se abre al completar esos 10."
+        title="Precios — Founder y Desktop"
+        description={`Programa Founder: cierra ${FOUNDER_CLOSE_LABEL}. Escritorio incluido mientras no canceles tu suscripción. Desktop: temporada US$ 790, 24 meses US$ 1.390 o una fecha de 30 días US$ 149.`}
         url="https://streamrace.solutions/precios"
         schemaData={{
           "@context": "https://schema.org",
@@ -79,14 +66,28 @@ export default function Pricing() {
             "@id": "#cloud-plans",
             "name": "Streamrace Cloud",
             "description": "Sistema cloud para streaming de carreras",
-            "offers": visibleCloudPlans
-              .filter((plan) => plan.price !== null)
-              .map((plan) => ({
+            "offers": [
+              ...visibleCloudPlans
+                .filter((plan) => plan.price !== null)
+                .map((plan) => ({
+                  "@type": "Offer",
+                  "name": `${plan.name} Cloud`,
+                  "priceCurrency": "USD",
+                  "price": String(plan.price)
+                })),
+              ...desktopPlans.map((plan) => ({
+                "@type": "Offer",
+                "name": `Desktop ${plan.name}`,
+                "priceCurrency": "USD",
+                "price": String(plan.price)
+              })),
+              ...connectPlans.map((plan) => ({
                 "@type": "Offer",
                 "name": plan.name,
                 "priceCurrency": "USD",
                 "price": String(plan.price)
-              }))
+              })),
+            ]
           }
         }}
       />
@@ -120,7 +121,7 @@ export default function Pricing() {
           <div className="mb-12 md:mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-white/5 border border-white/10">
               <span className="w-2 h-2 rounded-full bg-(--accent) animate-pulse" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-white/80">4 / 10 Founder</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-white/80">Cierra en 1 mes</span>
             </div>
 
             <h1 className="text-4xl md:text-6xl font-black italic uppercase leading-none">
@@ -128,16 +129,16 @@ export default function Pricing() {
             </h1>
 
             <p className="mt-5 text-white/50 text-lg max-w-3xl">
-              Solo 10 productoras. Tres planes Founder, precio cerrado. Desktop es real: se abre cuando se completen esos 10.
+              El programa cierra {FOUNDER_CLOSE_LABEL}. El escritorio va incluido en un solo dispositivo mientras no canceles tu suscripción.
             </p>
           </div>
 
           <section>
             {renderSectionHeading(
               "Streamrace Cloud",
-              "Única venta ahora",
-              "Founder, Founder Pro y Founder Premium. Los tres cuentan para los 10 cupos. Co-desarrollo y precio cerrado mientras no te salgas del plan.",
-              "4 de 10 productoras"
+              "Suscripción.",
+              `Founder, Founder Pro y Founder Premium. Precio cerrado mientras no te salgas del plan. El programa cierra ${FOUNDER_CLOSE_LABEL}.`,
+              "Cierra en 1 mes"
             )}
 
             <div className="mb-14 border-y border-white/5 py-10">
@@ -200,27 +201,36 @@ export default function Pricing() {
             </p>
           </section>
 
-          {renderCallout(
-            "Operación local",
-            "Desktop existe. No se vende todavía.",
-            "Licencia perpetua, offline. Precio real. La venta se abre al completar las 10 productoras Founder."
-          )}
-
-          <section className="mt-16 opacity-80">
+          <section className="mt-20">
             {renderSectionHeading(
               "Streamrace Desktop",
-              "Licencia perpetua. Se abre al completar 10 Founder.",
-              "Operación local, sin depender de Internet para lo crítico. Los precios son los de lista. El contrato, después de los 10 Founder.",
-              "Próximamente"
+              "Licencia por plazo y por hardware.",
+              "Operación local en Windows y Mac, sin depender de Internet para lo crítico. La temporada de 12 meses es la oferta principal. El segundo año sale igual: US$ 790.",
+              "En venta"
             )}
+            <OsMarks />
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3 items-stretch">
               {desktopPlans.map((plan) => (
-                <PricingCard key={plan.licenses} plan={plan} onSelect={handleOpenModal} variant="desktop" unitPrice={desktopUnitPrice} />
+                <PricingCard key={plan.name} plan={plan} onSelect={handleOpenModal} variant="desktop" />
               ))}
             </div>
             <p className="mt-6 text-center text-sm text-white/40">
-              Desktop no se contrata hasta completar 10 Founder. Las funciones online (votación, clima, chat) se cotizan aparte sobre Desktop.
+              {SECOND_SEAT_NOTE} Las productoras Founder activas no compran esta licencia: el escritorio ya entra en su suscripción.
             </p>
+          </section>
+
+          <section className="mt-20">
+            {renderSectionHeading(
+              "Votación",
+              "Connect · US$ 19 por mes y por dispositivo",
+              "La función que más piden las productoras: el espectador vota desde el celular y el resultado sale al aire. Se suma a la temporada, a los 24 meses o a la fecha. En Founder ya viene incluida.",
+              "La favorita"
+            )}
+            <div className="mx-auto max-w-xl">
+              {connectPlans.map((plan) => (
+                <PricingCard key={plan.name} plan={plan} onSelect={handleOpenModal} variant="connect" />
+              ))}
+            </div>
           </section>
 
 

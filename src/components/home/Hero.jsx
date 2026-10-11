@@ -23,8 +23,8 @@ function HeroSlider() {
   }, [index]);
 
   return (
-    <div className="relative max-w-6xl mx-auto">
-      <div className="absolute -inset-1 bg-(--accent) rounded-2xl blur-xl opacity-10 pointer-events-none" />
+    <div className="relative isolate max-w-6xl mx-auto">
+      <div className="absolute -inset-1 bg-(--accent) rounded-2xl blur-xl opacity-10 pointer-events-none transform-gpu" />
       <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-[#0a0a0a] leading-none">
         {HERO_SLIDES.map((slide, i) => (
           <Motion.img
@@ -61,12 +61,12 @@ export default function Hero({ onOpenModal }) {
         <Motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 8, repeat: Infinity }}
-          className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-(--accent)/20 rounded-full blur-[120px]"
+          className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-(--accent)/20 rounded-full blur-[120px] transform-gpu"
         />
         <Motion.div
           animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
           transition={{ duration: 10, repeat: Infinity, delay: 1 }}
-          className="absolute bottom-[-10%] right-[20%] w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[120px]"
+          className="absolute bottom-[-10%] right-[20%] w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[120px] transform-gpu"
         />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,transparent_0%,#050505_100%)] z-10" />
       </div>
@@ -78,7 +78,7 @@ export default function Hero({ onOpenModal }) {
         className="z-20 w-full px-6"
       >
         <div className="max-w-5xl mx-auto flex flex-col items-center">
-          <Motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 mb-5 md:mb-6 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
+          <Motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 mb-5 md:mb-6 rounded-full bg-[#141414] border border-white/10">
             <span className="w-2 h-2 rounded-full bg-(--accent) animate-pulse" />
             <span className="text-[10px] font-bold uppercase tracking-widest text-white/80">
               Gráficas de TV para el deporte motor

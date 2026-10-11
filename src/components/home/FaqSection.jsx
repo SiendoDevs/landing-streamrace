@@ -21,7 +21,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "¿Lo puedo usar en eventos simultáneos?",
-    a: "Founder: 1 instancia 24/7 y hasta 3 extras por año. Founder Pro: 2 señales a la vez. Founder Premium: hasta 3. Los tres planes cuentan para los 10 cupos Founder.",
+    a: "Founder: 1 instancia 24/7 y hasta 3 extras por año. Founder Pro: 2 señales a la vez. Founder Premium: hasta 3. El programa cierra en 1 mes. El escritorio va incluido en un solo dispositivo mientras no canceles tu suscripción.",
   },
   {
     q: "¿Puedo usar el logo de mi productora o del campeonato?",
@@ -65,7 +65,11 @@ export const FAQ_ITEMS = [
   },
   {
     q: "¿Existe una versión de escritorio?",
-    a: "Sí. Licencia perpetua, offline. No se vende hasta completar las 10 productoras Founder.",
+    a: "Sí. Corre en Windows y Mac, en local y offline. Cada licencia es por hardware: un solo dispositivo. Temporada de 12 meses a US$ 790, 24 meses a US$ 1.390, o una fecha de 30 días a US$ 149. En Founder el escritorio va incluido en un solo dispositivo mientras no canceles tu suscripción.",
+  },
+  {
+    q: "¿Qué pasa el segundo año del escritorio?",
+    a: "La temporada se renueva a US$ 790, el mismo precio. Los 24 meses cubren dos años en un solo pago. La fecha de 30 días no se renueva sola.",
   },
 ];
 

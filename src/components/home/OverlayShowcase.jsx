@@ -12,9 +12,9 @@ export default function OverlayShowcase() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="order-2 lg:order-1 relative group"
+            className="order-2 lg:order-1 relative isolate group"
           >
-            <div className="absolute -inset-1 bg-(--accent) rounded-2xl blur-xl opacity-10 pointer-events-none" />
+            <div className="absolute -inset-1 bg-(--accent) rounded-2xl blur-xl opacity-10 pointer-events-none transform-gpu" />
             <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-[#0a0a0a]">
               <img src="/landing/overlay-principal.png" alt="Overlay Principal" className="w-full h-auto" />
             </div>

@@ -35,8 +35,8 @@ const BEATS = [
 
 function GlowFrame({ children, glowClass, className = "", glowOpacity = "opacity-10" }) {
   return (
-    <div className={`relative ${className}`}>
-      <div className={`absolute -inset-1 rounded-2xl blur-xl pointer-events-none ${glowOpacity} ${glowClass}`} />
+    <div className={`relative isolate ${className}`}>
+      <div className={`absolute -inset-1 rounded-2xl blur-xl pointer-events-none transform-gpu ${glowOpacity} ${glowClass}`} />
       <div className="relative">{children}</div>
     </div>
   );
