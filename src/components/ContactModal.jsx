@@ -9,6 +9,16 @@ import { getCountries } from "react-phone-number-input";
 import { formatCurrency, founderPlanChoices } from "./pricing/pricingConfig";
 
 // Lista de países simplificada para el selector (se puede expandir o usar una librería externa completa)
+const DATA_SOURCES = [
+  "MyLaps Speedhive",
+  "Race-Monitor",
+  "Orbits",
+  "Orbits TCP/IP",
+  "iRacing",
+  "XML",
+  "Otro tipo de fuente",
+];
+
 const COUNTRIES = [
   { code: "AR", name: "Argentina" },
   { code: "BO", name: "Bolivia" },
@@ -54,6 +64,8 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo", in
     phone: "",
     country: "",
     clientType: "Productora que cubre varias categorías",
+    dataSource: "",
+    dataSourceOther: "",
     type: initialType,
     plan: initialPlan,
     message: ""
@@ -67,6 +79,7 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo", in
   const [showPhoneCountrySelect, setShowPhoneCountrySelect] = useState(false);
   const [showCountrySelect, setShowCountrySelect] = useState(false);
   const [showClientTypeSelect, setShowClientTypeSelect] = useState(false);
+  const [showDataSourceSelect, setShowDataSourceSelect] = useState(false);
   const [showPlanSelect, setShowPlanSelect] = useState(false);
 
   const countriesList = React.useMemo(() => {
@@ -94,7 +107,8 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo", in
     setError(null);
 
     // Validación básica
-    if (!formState.name || !formState.email || !formState.phone || !formState.country || (formState.type === "access" && !formState.plan)) {
+    const dataSourceMissing = !formState.dataSource || (formState.dataSource === "Otro tipo de fuente" && !formState.dataSourceOther.trim());
+    if (!formState.name || !formState.email || !formState.phone || !formState.country || dataSourceMissing || (formState.type === "access" && !formState.plan)) {
       setError("Por favor completa todos los campos requeridos.");
       setIsSubmitting(false);
       return;
@@ -115,6 +129,9 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo", in
           telefono: formState.phone,
           pais: formState.country,
           tipo_organizacion: formState.clientType,
+          fuente_datos: formState.dataSource === "Otro tipo de fuente"
+            ? formState.dataSourceOther.trim()
+            : formState.dataSource,
           plan_elegido: formState.plan || "Sin especificar",
           tipo_solicitud: formState.type === "demo"
             ? "Solicitud de Demo"
@@ -146,6 +163,8 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo", in
           phone: "", 
           country: "", 
           clientType: "Productora que cubre varias categorías",
+          dataSource: "",
+          dataSourceOther: "",
           type: "demo", 
           plan: "",
           message: "" 
@@ -448,6 +467,54 @@ export default function ContactModal({ isOpen, onClose, initialType = "demo", in
                                     </div>
                                     <div className="fixed inset-0 z-40" onClick={() => setShowClientTypeSelect(false)} />
                                 </>
+                            )}
+                        </div>
+
+                        <div className="grid gap-2 relative">
+                            <label className="text-white/70 text-sm font-medium leading-none">Fuente de Datos</label>
+                            <button
+                                type="button"
+                                onClick={() => setShowDataSourceSelect(!showDataSourceSelect)}
+                                className="flex h-10 w-full items-center justify-between rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-muted-foreground focus:outline-none focus:border-[#D8552B]"
+                            >
+                                <span className={formState.dataSource ? "text-white" : "text-white/50"}>
+                                    {formState.dataSource || "Selecciona la fuente"}
+                                </span>
+                                <ChevronDown className="h-4 w-4 opacity-50" />
+                            </button>
+
+                            {showDataSourceSelect && (
+                                <>
+                                    <div className="absolute bottom-full left-0 mb-1 w-full overflow-hidden bg-[#1A1A1A] border border-white/10 rounded-md shadow-lg z-50">
+                                        {DATA_SOURCES.map((source) => (
+                                            <div
+                                                key={source}
+                                                onClick={() => {
+                                                    setFormState({
+                                                        ...formState,
+                                                        dataSource: source,
+                                                        dataSourceOther: source === "Otro tipo de fuente" ? formState.dataSourceOther : "",
+                                                    });
+                                                    setShowDataSourceSelect(false);
+                                                }}
+                                                className="px-3 py-2 hover:bg-white/10 cursor-pointer text-white text-sm"
+                                            >
+                                                {source}
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className="fixed inset-0 z-40" onClick={() => setShowDataSourceSelect(false)} />
+                                </>
+                            )}
+
+                            {formState.dataSource === "Otro tipo de fuente" && (
+                                <input
+                                    id="data-source-other"
+                                    value={formState.dataSourceOther}
+                                    onChange={(e) => setFormState({...formState, dataSourceOther: e.target.value})}
+                                    placeholder="Indicá el tipo de fuente"
+                                    className="flex h-10 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#D8552B] focus:ring-1 focus:ring-[#D8552B] transition-all"
+                                />
                             )}
                         </div>
 
