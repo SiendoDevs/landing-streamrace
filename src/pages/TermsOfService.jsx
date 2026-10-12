@@ -1,7 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Scale, FileSignature, AlertTriangle, Copyright, Gavel, ChevronLeft, Ban, Radio } from "lucide-react";
+import { Scale, FileSignature, AlertTriangle, Copyright, Gavel, ChevronLeft, Ban, Radio, ScrollText } from "lucide-react";
 import Logo from "../components/Logo";
+import EulaSections from "../components/legal/EulaSections";
+import { EULA_UPDATED } from "../content/eula";
 import { TRADEMARK_MARK, TRADEMARK_NOTICE } from "../lib/trademark";
 
 export default function TermsOfService() {
@@ -50,7 +53,7 @@ export default function TermsOfService() {
           {/* Aceptación */}
           <Section title="1. Aceptación de los Términos" icon={<FileSignature />}>
             <p>
-              Al acceder y utilizar <strong>Streamrace Solutions</strong> ("el Servicio"), aceptas cumplir y estar legalmente obligado por estos Términos y Condiciones. 
+              Al acceder y utilizar <strong>Streamrace Solutions</strong> ("el Servicio"), aceptas cumplir y estar legalmente obligado por estos Términos y Condiciones y por el Acuerdo de licencia de usuario final (EULA).
               Si no estás de acuerdo con alguno de estos términos, te rogamos que no utilices el Servicio.
             </p>
           </Section>
@@ -58,7 +61,9 @@ export default function TermsOfService() {
           {/* Uso del Servicio */}
           <Section title="2. Uso del Servicio" icon={<Scale />}>
             <p>
-              Te concedemos una licencia limitada, no exclusiva e intransferible para utilizar el Servicio con fines personales o comerciales relacionados con la transmisión de eventos de automovilismo y carreras reales.
+              La licencia de uso del software es la del Acuerdo de licencia de usuario final, publicado también en{" "}
+              <Link to="/eula" className="text-white/70 underline underline-offset-4">/eula</Link>
+              . Es limitada, no exclusiva e intransferible, para la transmisión de eventos de automovilismo y carreras reales.
             </p>
             <ul className="list-disc pl-6 space-y-2 mt-4 marker:text-(--accent)">
               <li>Eres responsable de mantener la confidencialidad de tu cuenta.</li>
@@ -126,6 +131,16 @@ export default function TermsOfService() {
               Estos Términos se regirán e interpretarán de acuerdo con las leyes vigentes en el país de residencia del propietario de Streamrace Solutions, sin tener en cuenta sus disposiciones sobre conflictos de leyes.
             </p>
           </Section>
+
+          <Section title="8. Acuerdo de licencia de usuario final" icon={<ScrollText />}>
+            <p>
+              El EULA forma parte de estos términos. El texto completo está debajo y en{" "}
+              <Link to="/eula" className="text-white/70 underline underline-offset-4">/eula</Link>
+              . Última actualización del acuerdo: {EULA_UPDATED}. Si no aceptás estas condiciones, no instales ni uses el software.
+            </p>
+          </Section>
+
+          <EulaSections />
 
         </motion.div>
 

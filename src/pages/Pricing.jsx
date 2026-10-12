@@ -184,6 +184,10 @@ export default function Pricing() {
                 <Link to="/terms-of-service" className="text-white/55 hover:text-white underline underline-offset-4">
                   Términos de Uso
                 </Link>
+                {" "}y en el{" "}
+                <Link to="/eula" className="text-white/55 hover:text-white underline underline-offset-4">
+                  acuerdo de licencia
+                </Link>
                 .
               </p>
             </div>
@@ -244,6 +248,9 @@ export default function Pricing() {
               </Link>
               <Link to="/terms-of-service" className="text-xs font-mono text-white/30 hover:text-white transition-colors cursor-pointer uppercase tracking-widest">
                 Términos de Uso
+              </Link>
+              <Link to="/eula" className="text-xs font-mono text-white/30 hover:text-white transition-colors cursor-pointer uppercase tracking-widest">
+                Licencia
               </Link>
             </div>
           </div>

@@ -39,12 +39,15 @@ export default function FooterCTA({ onOpenModal }) {
               El software está protegido por leyes de derechos de autor y tratados internacionales.
             </div>
           </div>
-          <div className="flex gap-8">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
             <Link to="/privacy-policy" className="text-xs font-mono text-white/30 hover:text-white transition-colors cursor-pointer uppercase tracking-widest">
               Privacidad
             </Link>
             <Link to="/terms-of-service" className="text-xs font-mono text-white/30 hover:text-white transition-colors cursor-pointer uppercase tracking-widest">
               Términos de Uso
+            </Link>
+            <Link to="/eula" className="text-xs font-mono text-white/30 hover:text-white transition-colors cursor-pointer uppercase tracking-widest">
+              Licencia
             </Link>
             <span
               onClick={() => onOpenModal("demo")}
