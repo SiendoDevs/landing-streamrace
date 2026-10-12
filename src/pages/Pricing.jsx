@@ -129,15 +129,15 @@ export default function Pricing() {
             </h1>
 
             <p className="mt-5 text-white/50 text-lg max-w-3xl">
-              El programa cierra {FOUNDER_CLOSE_LABEL}. El escritorio va incluido en un solo dispositivo mientras no canceles tu suscripción.
+              El programa cierra {FOUNDER_CLOSE_LABEL}. Quien entra conserva la instancia Cloud y el escritorio en un solo dispositivo mientras no cancele. Las licencias nuevas son de escritorio.
             </p>
           </div>
 
           <section>
             {renderSectionHeading(
               "Streamrace Cloud",
-              "Suscripción.",
-              `Founder, Founder Pro y Founder Premium. Precio cerrado mientras no te salgas del plan. El programa cierra ${FOUNDER_CLOSE_LABEL}.`,
+              "Suscripción del programa.",
+              `La instancia en la web es para Founder, Founder Pro y Founder Premium. Cierra ${FOUNDER_CLOSE_LABEL}. Quien entra conserva el precio y la instancia mientras no cancele. Después, la licencia que se vende es el escritorio.`,
               "Cierra en 1 mes"
             )}
 
@@ -205,7 +205,7 @@ export default function Pricing() {
             {renderSectionHeading(
               "Streamrace Desktop",
               "Licencia por plazo y por hardware.",
-              "Operación local en Windows y Mac, sin depender de Internet para lo crítico. La temporada de 12 meses es la oferta principal. El segundo año sale igual: US$ 790.",
+              "Operación local en Windows y Mac. El cronometraje se procesa en tu equipo. La temporada de 12 meses es la oferta principal. El segundo año sale igual: US$ 790.",
               "En venta"
             )}
             <OsMarks />
@@ -223,7 +223,7 @@ export default function Pricing() {
             {renderSectionHeading(
               "Votación",
               "Connect · US$ 19 por mes y por dispositivo",
-              "La función que más piden las productoras: el espectador vota desde el celular y el resultado sale al aire. Se suma a la temporada, a los 24 meses o a la fecha. En Founder ya viene incluida.",
+              "La función que más piden las productoras: el espectador vota desde el celular y el resultado sale al aire. El cronometraje corre en tu PC. Connect suma votación, clima, radar y chat sobre la temporada, los 24 meses o la fecha. En Founder ya viene incluido.",
               "La favorita"
             )}
             <div className="mx-auto max-w-xl">

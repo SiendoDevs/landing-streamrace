@@ -98,7 +98,7 @@ export default function TermsOfService() {
 
           <Section title="5. Streamrace Broadcast" icon={<Radio />}>
             <p>
-              Streamrace se ofrece como suscripción Founder o como licencia de escritorio por plazo. El alcance de cada plan es el publicado en la página de precios al momento de contratar.
+              La instancia Cloud se contrata dentro del programa Founder. Fuera de ese programa, la licencia que se ofrece es Streamrace Desktop. Connect es el adicional online de esa licencia y también entra en la suscripción Founder. El alcance de cada plan es el publicado en la página de precios al momento de contratar.
             </p>
             <ul className="list-disc pl-6 space-y-2 mt-4 marker:text-(--accent)">
               <li>El programa Founder incluye los planes Founder, Founder Pro y Founder Premium. El programa cierra en 1 mes.</li>
@@ -106,7 +106,7 @@ export default function TermsOfService() {
               <li>Founder incluye una instancia propia activa 24/7. Founder Pro y Founder Premium aumentan instancias simultáneas según la página de precios.</li>
               <li>Cada cuenta pertenece a una sola productora. No se puede compartir con otras productoras. El incumplimiento es causal de baja permanente de Streamrace.</li>
               <li>La suscripción Founder incluye una licencia de escritorio por hardware, para un solo dispositivo, mientras no canceles tu suscripción. Si cambiás de plan, la licencia de escritorio cae. No es una licencia perpetua.</li>
-              <li>Streamrace Desktop, fuera del programa Founder, se licencia por 12 meses, 24 meses o 30 días. Cada licencia es por hardware y habilita un solo dispositivo. La licencia dura el plazo pago y no se convierte en perpetua al vencer. Otra licencia, para un segundo dispositivo, se cotiza al 70% de la primera.</li>
+              <li>Streamrace Desktop, fuera del programa Founder, se licencia por 12 meses, 24 meses o 30 días. Cada licencia es por hardware y habilita un solo dispositivo. El cronometraje se procesa en ese equipo. La licencia dura el plazo pago y no se convierte en perpetua al vencer. Otra licencia, para un segundo dispositivo, se cotiza al 70% de la primera.</li>
               <li>Connect es un adicional mensual por dispositivo de escritorio. Cubre votación, clima automático, radar meteorológico con lluvia y chat de YouTube. Se termina cuando deja de pagarse.</li>
             </ul>
           </Section>

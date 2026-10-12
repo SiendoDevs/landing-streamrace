@@ -65,7 +65,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "¿Existe una versión de escritorio?",
-    a: "Sí. Corre en Windows y Mac, en local y offline. Cada licencia es por hardware: un solo dispositivo. Temporada de 12 meses a US$ 790, 24 meses a US$ 1.390, o una fecha de 30 días a US$ 149. En Founder el escritorio va incluido en un solo dispositivo mientras no canceles tu suscripción.",
+    a: "Sí. Es la licencia que se vende fuera de Founder. Corre en Windows y Mac. El cronometraje se procesa en tu equipo. Cada licencia es por hardware: un solo dispositivo. Temporada de 12 meses a US$ 790, 24 meses a US$ 1.390, o una fecha de 30 días a US$ 149. En Founder el escritorio va incluido en un solo dispositivo mientras no canceles tu suscripción. La instancia Cloud queda para ese programa.",
   },
   {
     q: "¿Qué pasa el segundo año del escritorio?",

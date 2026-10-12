@@ -60,6 +60,8 @@ export const CLOUD_CONDITIONS = [
   "Founder: 1 instancia 24/7. Founder Pro: 2 simultáneas. Founder Premium: hasta 3.",
   "La cuenta es de una productora. Compartirla con otra es causal de baja permanente de Streamrace.",
   "El escritorio va incluido en un solo dispositivo mientras no canceles tu suscripción.",
+  "La instancia Cloud queda para las productoras Founder. Fuera del programa, la licencia que se vende es el escritorio.",
+  "En el escritorio el cronometraje se procesa en tu equipo. Connect suma votación, clima, radar y chat.",
 ];
 
 export const cloudPlans = [
