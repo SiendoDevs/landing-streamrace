@@ -21,7 +21,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "¿Lo puedo usar en eventos simultáneos?",
-    a: "Founder: 1 instancia 24/7 y hasta 3 extras por año. Founder Pro: 2 señales a la vez. Founder Premium: hasta 3. El programa cierra en 1 mes. El escritorio va incluido en un solo dispositivo mientras no canceles tu suscripción.",
+    a: "Founder: 1 instancia 24/7. Founder Pro: 2 señales a la vez. Founder Premium: hasta 3. El programa cierra en 1 mes. El escritorio va incluido en un solo dispositivo mientras no canceles tu suscripción.",
   },
   {
     q: "¿Puedo usar el logo de mi productora o del campeonato?",

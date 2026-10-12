@@ -72,7 +72,6 @@ export const cloudPlans = [
     desc: "Una instancia. Precio de entrada al programa Founder.",
     features: [
       "1 instancia activa 24/7",
-      "Hasta 3 instancias extra por año",
       "Precio fijo mientras no te salgas del plan",
       "Branding propio",
       "Soporte con el desarrollador",
